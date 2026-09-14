@@ -1,0 +1,107 @@
+{
+  "name": "Path for docking to VL-Marker MAV Cart",
+  "marker_params": {
+    "offset_x_from_detected": -0.71,
+    "offset_y_from_detected": 0.03,
+    "offset_yaw_from_detected": 0.06,
+    "offset_x_to_waiting_pose": 2.0,
+    "offset_yaw_to_waiting_pose": 0.0,
+    "un_docking_distance": 1.5,
+    "detected_angle_allow": 0.3,
+    "detected_distance_allow": 3.0,
+    "angle_robot_vs_detected": 0.0,
+    "detection_params":
+    {
+      "pcd_dir_pkg": "auto_docking",
+      "pcd_dir_file": "pcd/rear_vl_marker.pcd",
+      "detect_type": 0,
+      "RS_max_iter":            240,
+      "RS_min_inliers":         3,
+      "RS_dist_thresh":         0.01,
+      "RANSAC_on_clusters":     true,
+      "Voxel_leaf_size":        0.001,
+      "EC_cluster_tolerance":   0.08,
+      "EC_min_size":            20,
+      "EC_max_size":            500,
+      "laser_frame":            "laser",
+      "robot_frame":            "base_link",
+      "ICP_min_score":          0.022,
+      "ICP_max_corres_dist":    0.1,
+      "ICP_max_iter":           100,
+      "ICP_max_transl_eps":     0.000000001,
+      "ICP_max_rot_eps":        0.000000001,
+      "ICP_max_eucl_fit_eps":   1.0
+    }
+  },
+  "cart_params":{
+    "type": "normal"
+  },
+  "params": {
+    "frame_id": "odom",
+    "overwrite_planner_setting": true
+  },
+  "waypoints": [
+    {
+      "name": "Pose_1",
+      "docking_params": {
+        "offset_x_from_last_pose": 1.6,
+        "check_icp_after_reached": true
+      },
+      "params": {
+        "retry_time": 1,
+        "local_planner": "move_to_point",
+        "reconfigure": {
+          "forward_vel": 0.1,
+          "backward_vel": 0.1,
+          "rotate_vel": 0.2,
+          "angular_vel": 0.5,
+          "linear_acc": 0.1,
+          "angular_acc": 0.2,
+          "xy_tolerance": 0.05,
+          "yaw_tolerance": 0.05
+        }
+      }
+    },
+    {
+      "name": "Pose_2",
+      "docking_params": {
+        "offset_x_from_last_pose": 1.2,
+        "check_icp_after_reached": false
+      },
+      "params": {
+        "local_planner": "move_to_point",
+        "reconfigure": {
+          "forward_vel": 0.1,
+          "backward_vel": 0.1,
+          "rotate_vel": 0.2,
+          "angular_vel": 0.3,
+          "linear_acc": 0.1,
+          "angular_acc": 0.2,
+          "xy_tolerance": 0.02,
+          "yaw_tolerance": 0.01
+        }
+      }
+    },
+    {
+      "name": "Pose_3",
+      "docking_params": {
+        "offset_x_from_last_pose": 0.0,
+        "check_icp_after_reached": false
+      },
+      "params": {
+        "local_planner": "move_to_point",
+        "reconfigure": {
+          "forward_vel": 0.1,
+          "backward_vel": 0.1,
+          "rotate_vel": -0.1,
+          "angular_vel": 0.0,
+          "linear_acc": 0.1,
+          "angular_acc": 0.2,
+          "x_only_tolerance": true,
+          "xy_tolerance": 0.02,
+          "yaw_tolerance": 0.1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=AMR Auto Start
+Icon=/usr/share/pixmaps/amr.png
+Exec=terminator -e "zsh -c 'source $HOME/robot_config/ros_config.sh; $ROS_WORKSPACE/src/ros_entry/scripts/amr_startup.sh 20 0;$SHELL'"

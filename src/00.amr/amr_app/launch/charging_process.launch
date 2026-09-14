@@ -1,0 +1,7 @@
+<launch>
+	<arg name="subfix" default="py" />
+
+	<node pkg="charging_process" name="charging_process" type="charging_process.$(arg subfix)"
+		output="screen"
+		args="--config_file $(find amr_config)/cfg/charging_process.yaml" />
+</launch>

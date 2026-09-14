@@ -1,0 +1,27 @@
+{
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/../../../.local/lib/python3/site-packages",
+        "${workspaceFolder}/../../devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/../../../.local/lib/python3/site-packages",
+        "${workspaceFolder}/../../devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "files.associations": {
+        "*.world": "makefile",
+        "*.inc": "makefile",
+        "*.txt": "ros.msg",
+        "*.desktop": "shellscript",
+        "*.lock": "yaml",
+        "*.json": "jsonc",
+        "*.tcc": "cpp",
+        "algorithm": "cpp",
+        "iterator": "cpp",
+        "random": "cpp",
+        "functional": "cpp",
+        "memory": "cpp",
+        "stdlib.h": "c"
+    }
+}

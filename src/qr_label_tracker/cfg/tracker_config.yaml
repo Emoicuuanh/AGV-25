@@ -1,0 +1,3 @@
+min_label_distance: 2.5
+loop_rate: 10
+start_tolerance: 0.05

@@ -1,0 +1,19 @@
+{
+    "python.analysis.extraPaths": [
+        "./agv_common_library/scripts",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "./followline_define/scripts"
+    ],
+    "python.autoComplete.extraPaths": [
+        "/home/mkac/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "files.associations": {
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
+    }
+}

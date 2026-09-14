@@ -1,0 +1,9 @@
+encoder_resolution: 52800 # = resolution_encoder * gear_reduction
+
+wheel_radius: 0.1
+wheel_separation: 0.486
+
+kalman_q_linear: 0.05
+kalman_r_linear: 0.1
+kalman_q_angular: 0.05
+kalman_r_angular: 0.1

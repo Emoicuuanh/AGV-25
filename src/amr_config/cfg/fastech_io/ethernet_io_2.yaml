@@ -1,0 +1,32 @@
+ip_address: 192.168.0.3
+port: 3001
+
+get_io_rate: 10 # Hz
+# USe IO from pinfalse - amount_pin
+amount_pin : 16
+# false = Output
+# true = input
+G_type: true
+# logic_type: false = 24v
+# logic_type: true = 0v
+
+fasteck_ezi_io: {
+  arduino_led:                  {pin: 0,  type: Input, current_value: true, logic_type: false},
+  emg_button:                   {pin: 1,  type: Output, current_value: true, logic_type: false},
+  start_1_button:               {pin: 2,  type: Output, current_value: false, logic_type: false},
+  start_2_button:               {pin: 3,  type: Output, current_value: false, logic_type: false},
+  stop_1_button:                {pin: 4,  type: Output, current_value: false, logic_type: false},
+  stop_2_button:                {pin: 5,  type: Output, current_value: false, logic_type: false},
+  lift_min_level:               {pin: 6,  type: Output, current_value: true, logic_type: false},
+  lift_max_level:               {pin: 7,  type: Output, current_value: true, logic_type: false},
+  lift_work_level:              {pin: 8,  type: Output, current_value: false, logic_type: true},
+  release_motor_sw:             {pin: 9,  type: Output, current_value: false, logic_type: true},
+  auto_manual_sw:               {pin: 10, type: Output, current_value: false, logic_type: true},
+  digital_x:                    {pin: 11, type: Output, current_value: false, logic_type: true},
+  digital_y:                    {pin: 12, type: Output, current_value: false, logic_type: true},
+  digital_mm:                   {pin: 13, type: Output, current_value: false, logic_type: true},
+  digital_s:                    {pin: 14, type: Output, current_value: false, logic_type: true},
+  digital_z:                    {pin: 15,  type: Output, current_value: false, logic_type: true},
+  pow_1:                        {pin: 17,  type: Output, current_value: false, logic_type: false},
+  pow_2:                        {pin: 18,  type: Const, current_value: true, logic_type: false},
+}

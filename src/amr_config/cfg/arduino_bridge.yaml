@@ -1,0 +1,107 @@
+port: 2-4.2:1.0
+# port_pid: 29987
+baud: 115200
+timeout: 0.1
+auto_find_from_pid: false
+
+rate: 30
+sensorstate_rate: 10
+
+use_base_controller: True
+base_controller_rate: 20
+
+use_odom: False
+use_arduino_encoder: False
+use_outside_encoder: False
+
+use_motor: False
+
+publish_tf: False
+
+use_imu: False
+
+use_turn_signal: True
+# TODO
+turn_signal_array:
+- front_left
+- front_right
+- rear_right
+- rear_left
+
+base_frame: base_link
+footprint_frame: base_footprint
+
+# BJT socket board address mapping
+#define X0 A15  // 69
+#define X1 A14  // 68
+#define X2 A13  // 67
+#define X3 A12  // 66
+#define X4 A11  // 65
+#define X5 A10  // 64
+#define X6 A9   // 63
+#define X7 A8   // 62
+
+#define X8 A7   // 61
+#define X9 A6   // 60
+#define X10 A5  // 59
+#define X11 A4  // 58
+#define X12 43
+#define X13 4
+#define X14 5
+#define X15 2
+
+#define X16 3
+#define X17 6
+#define X18 7
+#define X19 8
+#define X20 9
+#define X21 49
+#define X22 48
+#define X23 47
+
+#define Y0 24
+#define Y1 25
+#define Y2 26
+#define Y3 27
+#define Y4 28
+#define Y5 29
+#define Y6 39
+
+#define Y7 30
+#define Y8 31
+#define Y9 32
+#define Y10 33
+#define Y11 34
+#define Y12 35
+#define Y13 36
+
+#define AD0 A3  // 57
+#define AD1 A2  // 56
+#define AD2 A1  // 55
+#define AD3 A0  // 54
+
+sensors: {
+  blink_arduino_led:            {pin: 13, type: Digital, rate: 5, direction: output, logic_type: low, blink_rate: 5},
+  emg_button:                   {pin: 69, type: Digital, rate: 10, logic_type: low},
+  start_1_button:               {pin: 65, type: Digital, rate: 10, logic_type: low},
+  start_2_button:               {pin: 64, type: Digital, rate: 10, logic_type: low},
+  stop_1_button:                {pin: 63, type: Digital, rate: 10, logic_type: low},
+  stop_2_button:                {pin: 62, type: Digital, rate: 10, logic_type: low},
+  lift_max_sensor:              {pin: 67, type: Digital, rate: 5, logic_type: high},
+  lift_min_sensor:              {pin: 66, type: Digital, rate: 5, logic_type: high},
+  motor_enable_sw:              {pin: 61, type: Digital, rate: 5, logic_type: low},
+  motor_en_output:              {pin: 32, type: Digital, rate: 5, direction: output, logic_type: high},
+  auto_manual_sw:               {pin: 60, type: Digital, rate: 5, logic_type: low},
+  manual_charging_detect:       {pin: 49, type: Digital, rate: 5, logic_type: low},
+  auto_charging_detect:         {pin: 48, type: Digital, rate: 5, logic_type: low},
+  auto_charging_en_pin:         {pin: 31, type: Digital, rate: 5, direction: output, logic_type: high},
+  detect_vrack:                 {pin: 68, type: Digital, rate: 5, logic_type: low},
+  bumper:                       {pin: 47, type: Digital, rate: 10, logic_type: low},
+}
+
+# Declare "pin" only for comment
+float_params: {
+  battery_percent:             {rate: 5, code: 1},
+  battery_voltage:             {rate: 5, code: 2},
+  battery_ampe:                {rate: 5, code: 3},
+}

@@ -1,0 +1,14 @@
+scan_filter_chain:
+- name: rear side
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace # Ignore in range lower to upper
+  params:
+    lower_angle: -2.65
+    upper_angle: 2.95
+# - name: range
+#   type: laser_filters/LaserScanRangeFilter
+#   params:
+#     use_message_range_limits: false
+#     lower_threshold: -.inf
+#     upper_threshold: 2.5
+#     lower_replacement_value: -.inf
+#     upper_replacement_value: .inf

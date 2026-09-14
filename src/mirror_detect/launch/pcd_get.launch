@@ -1,0 +1,16 @@
+<launch>
+    <!-- Use this package: http://wiki.ros.org/pointcloud_to_laserscan -->
+    <node pkg="pointcloud_to_laserscan" type="laserscan_to_pointcloud_node" name="laserscan_to_pointcloud">
+        <remap from="scan_in" to="scan_laser"/>
+    </node>
+      <!-- <node pkg="docking" type="get_pcd.sh" name="my_script_node" output="screen">
+        <param name="param_name" value="param_value" />
+    </node> -->
+    <!-- <node pkg="docking" type="detection_node" name="detection_node" output="screen" respawn="false" clear_params="true">
+        <remap from="cloud" to="docking/input_cloud"/>
+        <param name="dock_filepath" value="$(find auto_docking)/pcd/rear_vl_marker.pcd"/>
+        <param name="laser_frame" value="base_scan"/>
+        <param name="robot_frame" value="base_link"/>
+        <param name="detect_type" value="1"/>
+    </node> -->
+</launch>

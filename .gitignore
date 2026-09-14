@@ -1,0 +1,20 @@
+# catkin build artifacts
+build/
+devel/
+devel_isolated/
+build_isolated/
+install/
+install_isolated/
+logs/
+.catkin_tools/
+
+# python
+*.pyc
+*.pyo
+__pycache__/
+
+# editor / OS
+*.swp
+*~
+.DS_Store
+Thumbs.db

@@ -1,0 +1,9 @@
+<launch>
+  <arg name="log_level" default="2" />
+  <node name="scan_safety" pkg="vl53l5cx" type="config_vl53l5cx.py" output="screen"
+    args="$(arg log_level)">
+    <rosparam file="$(find vl53l5cx)/config/safety_config_ng.yaml" command="load" />
+  </node>
+  <!-- <include file="$(find pointcloud_to_laserscan)/launch/point2laser.launch" /> -->
+  <!-- <include file="$(find ira_laser_tools)/launch/laserscan_multi_merger.launch" /> -->
+</launch>

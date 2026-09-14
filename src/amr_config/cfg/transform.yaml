@@ -1,0 +1,60 @@
+transform: {
+    transform_0: {
+        parent_frame: "base_footprint",
+        child_frame: "base_link",
+        rate: 0,
+        x: 0.0,
+        y: 0.0,
+        z: 0.081,
+        roll: 0.0,
+        pitch: 0.0,
+        yaw: 0.0,
+      }, # rate = 0 for static transform
+    transform_1:
+      {
+        parent_frame: "base_link",
+        child_frame: "laser",
+        rate: 0,
+        x: 0.22,
+        y: 0.0,
+        z: 0.161,
+        roll: 0.0,
+        pitch: 0.0,
+        yaw: 0.0,
+      },
+    transform_2:
+      {
+        parent_frame: "base_link",
+        child_frame: "camera_link",
+        rate: 0,
+        x: 0.25,
+        y: 0.03,
+        z: 0.05,
+        roll: 0.0,
+        pitch: -0.22,
+        yaw: 0.0,
+      },
+    transform_3:
+      {
+        parent_frame: "base_link",
+        child_frame: "ips_link",
+        rate: 0,
+        x: 0.110,
+        y: 0.115,
+        z: 0.40,
+        roll: 0.0,
+        pitch: 0.0,
+        yaw: 0.0,
+      },
+    transform_4:
+      {parent_frame: "base_link",
+     child_frame: "imu_link",
+     rate: 0,
+     x: 0.0,
+      y: 0.0,
+      z: 0.4,
+      roll: 0.0,
+      pitch: 0.0,
+      yaw: 0.0},
+
+}

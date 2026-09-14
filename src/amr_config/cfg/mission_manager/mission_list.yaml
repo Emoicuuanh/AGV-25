@@ -1,0 +1,46 @@
+# check_position_status:
+#   action_server: check_position_status
+move:
+  action_server: moving_control
+  need_undocking: true
+  module_name: moving_control
+set_footprint:
+  action_server: set_footprint
+  need_undocking: false
+set_safety_job:
+  action_server: set_safety_job
+  need_undocking: false
+charging:
+  action_server: charging_process
+  need_undocking: false
+  module_name: charging_process
+sound:
+  action_server: sound_control_server
+  need_undocking: false
+trigger_mission_server:
+  action_server: trigger_mission_server
+  need_undocking: false
+time_wait:
+  action_server: time_waiting_server
+  need_undocking: false
+led_effect:
+  action_server: led_control_server
+  need_undocking: false
+lifting:
+  action_server: lifting_server
+  need_undocking: false
+matehand:
+  action_server: matehan_server
+  need_undocking: true
+hub:
+  action_server: hub_server
+  need_undocking: true
+elevator:
+  action_server: elevator_server
+  need_undocking: true
+docking_charger:
+  action_server: docking_charger_server
+  need_undocking: true
+un_docking:
+  action_server: un_docking
+  need_undocking: true

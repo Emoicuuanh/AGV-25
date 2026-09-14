@@ -1,0 +1,5 @@
+<launch>
+    <arg name="simulation" default="false" />
+    <node name="slam_manager" pkg="slam_manager" type="slam_manager.py" output="screen"
+        args="$(arg simulation) --config_file $(find amr_config)/cfg/slam_manager/slam_config.yaml" />
+</launch>

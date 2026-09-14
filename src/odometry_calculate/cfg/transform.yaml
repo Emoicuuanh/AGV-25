@@ -1,0 +1,18 @@
+# encoder_resolution: 1000
+# gear_reduction: 1.0
+
+# wheel_radius: 0.1
+# wheel_separation: 0.415
+
+
+# encoder_resolution: 52800 # = resolution_encoder * gear_reduction
+
+# wheel_radius: 0.1 
+# wheel_separation: 0.484
+
+
+encoder_resolution: 37500
+gear_reduction: 1.0
+motor_direction: false
+wheel_radius: 0.075
+wheel_separation: 0.505

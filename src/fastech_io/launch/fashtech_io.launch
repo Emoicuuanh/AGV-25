@@ -1,0 +1,6 @@
+<launch>
+	<node pkg="fastech_io" name="ethernet_io_1" type="ethernet_io.py" output="screen">
+		<!-- <rosparam file="$(find fastech_io)/cfg/ethernet_io_1.yaml" command="load"/> -->
+		<rosparam file="$(find fastech_io)/cfg/ethernet_io_1.yaml" command="load" />
+	</node>
+</launch>

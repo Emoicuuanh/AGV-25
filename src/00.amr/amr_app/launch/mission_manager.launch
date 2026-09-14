@@ -1,0 +1,5 @@
+<launch>
+    <node name="mission_manager" pkg="mission_manager" type="mission_manager_server.py"
+        output="screen"
+        args="--mission_list $(find amr_config)/cfg/mission_manager/mission_list.yaml" />
+</launch>

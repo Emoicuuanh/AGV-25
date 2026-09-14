@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=HMI
+Icon=/usr/share/pixmaps/amr.png
+Exec=terminator -e "bash -c 'source $HOME/robot_config/ros_config.sh; $ROS_WORKSPACE/src/hmi_for_agv_release/bundle/hmi_for_agv; $SHELL'"

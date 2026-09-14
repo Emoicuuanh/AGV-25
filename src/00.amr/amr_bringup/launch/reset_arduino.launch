@@ -1,0 +1,7 @@
+<launch>
+	<arg name="hard_port" default="$(env ARDUINO_PORT)" />
+
+	<node name="reset_arduino" pkg="reset_esp" type="arduino_manager.py" output="screen">
+		<param name="port" value="$(arg hard_port)" />
+	</node>
+</launch>

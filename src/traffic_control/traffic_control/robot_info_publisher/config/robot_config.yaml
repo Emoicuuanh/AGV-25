@@ -1,0 +1,5 @@
+robot_mapping:
+  robot_1: "14"
+  # robot_2: "15"
+  # robot_2: "15"
+  # robot_3: "16"  # Có thể thêm hoặc bớt robot tùy nhu cầu

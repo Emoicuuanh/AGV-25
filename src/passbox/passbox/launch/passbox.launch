@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="plc_ip" default="192.86.11.191"/>
+    <arg name="plc_port" default="5000"/>
+
+    <node pkg="passbox" type="passbox_lift.py" name="passbox_server" output="screen">
+        <param name="plc_ip" value="$(arg plc_ip)" />
+        <param name="plc_port" value="$(arg plc_port)" />
+    </node>
+</launch>
+

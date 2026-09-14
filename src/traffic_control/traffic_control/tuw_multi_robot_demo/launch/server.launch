@@ -1,0 +1,4 @@
+<launch>
+    <node name="server_traffic_control" pkg="server" type="server_traffic_control" output="screen">
+    </node>
+</launch>

@@ -1,0 +1,19 @@
+dock_filepath: "/home/mkac/mav_ws/src/docking/pcd/mkhc_vl_marking.pcd"
+RS_max_iter: 252
+RS_min_inliers: 3
+RS_dist_thresh: 0.02
+RANSAC_on_clusters: True
+
+Voxel_leaf_size: 0.001
+
+# EC_cluster_tolerance:   0.14
+EC_cluster_tolerance: 0.05 #tb3
+EC_min_size: 8
+EC_max_size: 250
+laser_frame: "laser"
+
+#Bar marker detection
+BAR_length: 0.4
+BAR_length_tolerance: 0.1
+BAR_distance: 0.4
+BAR_distance_tolerance: 0.1

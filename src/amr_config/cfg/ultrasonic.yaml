@@ -1,0 +1,16 @@
+ultrasonic:
+  port: "1-1.3"
+  publish_rate: 3
+
+  vel_topic: "/odom"
+  offsets:
+    {
+      ultrasonic0:
+        { x: -0.25, y: 0.0, z: 0.10, roll: 0.0, pitch: 0.0, yaw: 3.14 },
+      ultrasonic1:
+        { x: -0.25, y: 0.0, z: 0.23, roll: 0.0, pitch: 0.0, yaw: 3.14 },
+      ultrasonic2:
+        { x: 0.25,  y: 0.05, z: 0.23, roll: 0.0, pitch: 0.0, yaw: 0.2 },
+      ultrasonic3:
+        { x: 0.25, y: -0.05, z: 0.23, roll: 0.0, pitch: 0.0, yaw: -0.2 },
+    }

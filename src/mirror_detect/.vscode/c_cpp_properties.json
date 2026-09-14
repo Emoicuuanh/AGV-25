@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "${workspaceFolder}/include",
+                "/opt/ros/melodic/include",
+                "/usr/include/eigen3",
+                "/usr/include/pcl-1.8",
+                "/usr/include/vtk-6.3",
+                "/home/coffee/catkin_ws/devel/include"
+            ],
+            "name": "ROS",
+            "compilerPath": "/usr/bin/clang"
+        }
+    ],
+    "version": 4
+}

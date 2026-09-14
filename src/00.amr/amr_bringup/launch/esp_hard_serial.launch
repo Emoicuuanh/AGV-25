@@ -1,0 +1,14 @@
+<launch>
+    <arg name="hard_port_forward" default="$(env ESP_PORT_FW)" />
+    <arg name="hard_port_backward" default="$(env ESP_PORT_BW)" />
+
+    <node name="find_forward_esp_port_and_run" pkg="agv_common_library" type="find_port_and_run.py"
+        output="screen"
+        args="roslaunch amr_bringup forward_esp_serial.launch port $(arg hard_port_forward)" />
+
+    <node name="find_backward_esp_port_and_run" pkg="agv_common_library"
+        type="find_port_and_run.py"
+        output="screen"
+        args="roslaunch amr_bringup backward_esp_serial.launch port $(arg hard_port_backward)" />
+
+</launch>

@@ -1,0 +1,15 @@
+<launch>
+	<arg name="hard_port" default="$(env ARDUINO_PORT)" />
+	<arg name="cmd_vel_topic" default="/final_cmd_vel_mux/output" />
+
+	<node name="arduino_driver" pkg="arduino_ros" type="arduino_driver.py" output="screen">
+		<rosparam file="$(find amr_config)/cfg/arduino_bridge.yaml" />
+		<rosparam file="$(find amr_config)/cfg/transform.yaml" />
+		<remap from="cmd_vel" to="$(arg cmd_vel_topic)" />
+		<!-- <remap from="encoder" to="$(arg outside_encoder)" /> -->
+		<!-- <remap from="/arduino_driver/float_param/battery_ampe" to="/arduino_driver/float_param/battery_ampe_arduino" />
+		<remap from="/arduino_driver/float_param/battery_percent" to="/arduino_driver/float_param/battery_percent_arduino" />
+		<remap from="/arduino_driver/float_param/battery_voltage" to="/arduino_driver/float_param/battery_voltage_arduino" /> -->
+		<param name="port" value="$(arg hard_port)" />
+	</node>
+</launch>

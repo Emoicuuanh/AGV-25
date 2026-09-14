@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<launch>
+<rosparam file="$(env HOME)/robot_config/robot_define.yaml" command="load"/>
+<arg name="room"                                default="cave"      />
+<arg name="launch_rviz"                         default="true"      />
+<arg name="launch_stage"                        default="true"      />
+<arg name="launch_map_server"                   default="false"      />
+<arg name="launch_fake_map"                   default="true"      />
+<arg name="launch_multi_robot_route_planner"    default="true"      />
+<arg name="launch_local_controller"             default="true"      />
+<arg name="launch_local_controller_one_for_all" default="false"      />
+<arg name="nr_of_robots"                        default="3"         />
+
+<arg name="launch_graph_generator"              default="true"      />
+<arg name="cfg"                                 default="default"   />
+<arg name="load_segments"                       default="false"     />
+<arg name="map_name"                            default=""          />
+<arg name="update_rate_info"                    default="1.0"       />
+
+<!-- map server -->
+<group if="$(arg launch_map_server)">
+  <include file="$(find tuw_multi_robot_demo)/launch/map_server.launch">
+    <arg name="room" value="$(arg room)" />
+  </include>
+</group>
+<group if="$(arg launch_fake_map)">
+  <include file="$(find tuw_multi_robot_demo)/launch/fake_map.launch">
+    <!-- <arg name="room" value="$(arg room)" /> -->
+  </include>
+</group>
+
+
+<!-- chi su dung cho mo phong -->
+<group if="$(arg launch_stage)">
+  <include file="$(find tuw_multi_robot_demo)/launch/stage.launch">
+    <arg name="room" value="$(arg room)" />
+  </include>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 map robot_0/odom" />
+</group>
+
+
+<!-- module xử lý tạo path cho các agv -->
+<group if="$(arg launch_multi_robot_route_planner)">
+  <include file="$(find tuw_multi_robot_demo)/launch/multi_robot_route_planner.launch">
+    <arg name="cfg" value="$(arg cfg)" />
+  </include>
+</group>
+
+<!-- start rviz -->
+<!-- dùng để test gửi goals tới server, khi chạy rviz sẽ chạy chương trình quản lý goals của tất cả agv và gửi tất cả goals xuống cho server, thưc tế cần tạo module Goal manager riêng -->
+<group if="$(arg launch_rviz)">
+  <include file="$(find tuw_multi_robot_demo)/launch/rviz.launch">
+  <arg name="cfg" value="cave"/>
+  </include>
+</group>
+
+<!-- nhận dữ liệu từ agv và gửi path xuống cho agv, các agv khác lấy thông tin của nhau -->
+<include file="$(find tuw_multi_robot_demo)/launch/server.launch"/>
+
+
+<!-- load dữ liệu từ server -->
+<include file="$(find tuw_multi_robot_demo)/launch/pub_graph.launch"/>
+
+<!-- Control send run or pause to robot -->
+<include file="$(find tuw_multi_robot_demo)/launch/multi_robot_controller.launch">
+  </include>
+
+</launch>

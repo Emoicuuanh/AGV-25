@@ -1,0 +1,64 @@
+<!-- <launch>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_1"
+        args="0.0 0 0.081 0 0 0  base_footprint base_link" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_2"
+        args="0 0 0 0 0 0 /base_footprint /qr_cam" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_3"
+        args="0.35 0.25 0.25 1.57 0 2.18 /base_footprint /base_laser_1" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_4"
+        args="0.35 -0.25 0.25 1.57 0 2.18 /base_footprint /base_laser_2" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_5"
+        args="-0.35 -0.25 0.25 -1.57 0 2.06 /base_footprint /base_laser_3" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_6"
+        args="-0.35 0.25 0.25 -1.57 0 2.06 /base_footprint /base_laser_4" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_7"
+        args="0.34 0.24 0.25 3.18 0 3.14 /base_footprint /laser_frame_1" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_8"
+        args="-0.34 -0.24 0.25 0 0 3.14 /base_footprint /laser_frame_2" />
+</launch> -->
+
+<launch>
+    <arg name="tof_1_ang" default="$(env TOF_1_ANG)" />
+    <arg name="tof_2_ang" default="$(env TOF_2_ANG)" />
+    <arg name="tof_3_ang" default="$(env TOF_3_ANG)" />
+    <arg name="tof_4_ang" default="$(env TOF_4_ANG)" />
+
+    <arg name="tof_1_ang_rad" default="$(eval tof_1_ang * 0.0174533)" />
+    <arg name="tof_2_ang_rad" default="$(eval tof_2_ang * 0.0174533)" />
+    <arg name="tof_3_ang_rad" default="$(eval tof_3_ang * 0.0174533)" />
+    <arg name="tof_4_ang_rad" default="$(eval tof_4_ang * 0.0174533)" />
+    <arg name="X_FRONT" default="$(env X_LIDAR_FRONT)" />
+    <arg name="Y_FRONT" default="$(env Y_LIDAR_FRONT)" />
+    <arg name="X_BACK" default="$(env X_LIDAR_BACK)" />
+    <arg name="Y_BACK" default="$(env Y_LIDAR_BACK)" />
+    <arg name="ROTATE_FRONT" default="$(env ROTATE_LIDAR_FRONT)" />
+    <arg name="ROTATE_BACK" default="$(env ROTATE_LIDAR_BACK)" />
+
+
+
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_1"
+        args="0.0 0 0.081 0 0 0 base_footprint base_link" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_2"
+        args="0 0 0 0 0 0 /base_footprint /qr_cam" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_3"
+        args="0.35 0.25 0.25 1.57 0 $(arg tof_1_ang_rad) /base_footprint /base_laser_1" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_4"
+        args="0.35 -0.25 0.25 1.57 0 $(arg tof_2_ang_rad) /base_footprint /base_laser_2" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_5"
+        args="-0.35 -0.25 0.25 -1.57 0 $(arg tof_3_ang_rad) /base_footprint /base_laser_3" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_6"
+        args="-0.35 0.25 0.25 -1.57 0 $(arg tof_4_ang_rad) /base_footprint /base_laser_4" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_7"
+        args="$(arg X_FRONT) $(arg Y_FRONT) 0.25 $(arg ROTATE_FRONT) 0 3.14159 /base_footprint /laser_frame_1" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_8"
+        args="$(arg X_BACK) $(arg Y_BACK) 0.25 $(arg ROTATE_BACK) 0 3.14159 /base_footprint /laser_frame_2" />
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_7"
+        args="0.345 0.244 0.25 0.79445 0 3.14159 /base_footprint /laser_frame_1" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_8"
+        args="-0.345 -0.24 0.25 -2.3423 0 3.14159 /base_footprint /laser_frame_2" /> -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_9"
+        args="0 0 0 1.57 1.57 0 /base_footprint /test" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_10"
+        args="0.0 0 0.0 0 0 0 /base_footprint /laser" />
+</launch>

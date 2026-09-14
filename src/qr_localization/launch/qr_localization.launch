@@ -1,0 +1,8 @@
+<launch>
+   <node name="qr_localization" pkg="qr_localization" type="qr_code_localization" output="log" >
+      <param name="transform_x_cam_qr" value="$(env TRANS_X_CAM_QR)"/>
+      <param name="transform_y_cam_qr" value="$(env TRANS_Y_CAM_QR)"/>
+      <param name="angle_cam_qr" value="$(env ROTATE_Z_CAM_QR)"/>
+      <!-- <param name="angle_cam_qr" value="0"/> -->
+   </node>
+</launch>

@@ -1,0 +1,35 @@
+{
+  "dist_check_go_in": 0.8,
+  "dist_check_go_out": 0.8,
+  "max_error_position_in_hub": 0.05,
+  "max_error_angle_in_hub": 7,
+  "max_error_position_out_hub": 0.05,
+  "max_error_angle_out_hub": 7,
+  "distance_turn_off_safety_when_docking": 0.8,
+  "max_vel_docking": 0.3,
+  "length_hub": 0.88,
+  "safety_job_docking_forward": "amr_docking_forward",
+  "safety_job_docking_backward": "amr_docking_backward",
+  "safety_job_undocking_forward": "amr_undocking_forward",
+  "safety_job_undocking_backward": "amr_undocking_backward",
+  "footprint_dock": "amr_run_alone",
+  "foorprint_undock": "amr_run_alone",
+  "enable_check_error_when_docking": true,
+  "mirror_offsets": {
+    "hub": {
+      "x_offset": -0.42,
+      "y_offset": 0.0,
+      "comment": "Hub cách mirror ngược hướng"
+    },
+    "waiting": {
+      "x_offset": 0.8,
+      "y_offset": 0.0,
+      "comment": "Waiting cách mirror cùng hướng"
+    },
+    "temp": {
+      "x_offset": 0.8,
+      "y_offset": 0.0,
+      "comment": "Temp cách mirror cùng hướng"
+    }
+  }
+}

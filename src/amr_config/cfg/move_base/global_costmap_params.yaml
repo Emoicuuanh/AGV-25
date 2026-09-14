@@ -1,0 +1,17 @@
+# receptionist
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_footprint
+  update_frequency: 5.0  # default: 5.0 The frequency in Hz for the map to be updated.
+  publish_frequency: 2.0 # default: 0.0 The frequency in Hz for the map to be publish display information.
+  static_map: true
+  rolling_window: false
+  resolution: 0.05
+  transform_tolerance: 1.5 # default: 0.2 (sec) Thời gian trễ chuyển đổi của TF sử dụng cho cập nhật data từ cảm biến
+  footprint_padding: 0.01
+
+  plugins:
+    - {name: static_layer,            type: "costmap_2d::StaticLayer"}
+    # - {name: restricted_layer,        type: "restrict_area::RestrictedLayer"}
+    - {name: obstacle_layer,          type: "costmap_2d::VoxelLayer"}
+    - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}

@@ -1,0 +1,8 @@
+{
+  "offset_x_direction": 0.2,
+  "error_sensor_in_hub": 6,
+  "error_angle_sensor_in_hub": 6,
+  "safety_job_docking": "FORWARD",
+  "footprint_dock": "amr_run_alone",
+  "enable_check_error_when_docking": true
+}

@@ -1,0 +1,153 @@
+<launch>
+
+  <!-- Tạo một nodelet manager -->
+  <node pkg="nodelet" type="nodelet" name="vl53_pcl2laser_manager" args="manager" output="screen" />
+
+  <!-- Filter Pointcloud 1 -->
+  <node name="statistical_outlier_removal_1" pkg="nodelet" type="nodelet"
+    args="load pcl/StatisticalOutlierRemoval vl53_pcl2laser_manager ">
+    <remap from="~input" to="/pointcloud_lidar1" />
+    <remap from="~output" to="/pointcloud_lidar1_filter" />
+    <rosparam>
+      mean_k: 10
+      stddev: 3.0
+    </rosparam>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="vl53_pcl_to_laser_1"
+    args="load pointcloud_to_laserscan/pointcloud_to_laserscan_nodelet vl53_pcl2laser_manager">
+    <remap from="cloud_in" to="/pointcloud_lidar1_filter" />
+    <remap from="scan" to="lidar1" />
+    <rosparam>
+      target_frame: base_footprint
+      transform_tolerance: 0.01
+      min_height: 0.05
+      max_height: 1
+
+      angle_min: -3.14
+      angle_max: 3.14
+      angle_increment: 0.0087
+      scan_time: 0.05
+      range_min: 0.05
+      range_max: 1.5
+      use_inf: false
+
+      #concurrency_level affects number of pc queued for processing and the number of threadsused
+      # 0: Detect number of cores
+      # 1: Single threaded
+      # 2: inf : Parallelism level
+      concurrency_level: 1
+    </rosparam>
+  </node>
+
+  <!-- Filter Pointcloud 2 -->
+  <node name="statistical_outlier_removal_2" pkg="nodelet" type="nodelet"
+    args="load pcl/StatisticalOutlierRemoval vl53_pcl2laser_manager ">
+    <remap from="~input" to="/pointcloud_lidar2" />
+    <remap from="~output" to="/pointcloud_lidar2_filter" />
+    <rosparam>
+      mean_k: 10
+      stddev: 3.0
+    </rosparam>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="vl53_pcl_to_laser_2"
+    args="load pointcloud_to_laserscan/pointcloud_to_laserscan_nodelet vl53_pcl2laser_manager">
+    <remap from="cloud_in" to="/pointcloud_lidar2_filter" />
+    <remap from="scan" to="lidar2" />
+    <rosparam>
+      target_frame: base_footprint
+      transform_tolerance: 0.01
+      min_height: 0.05
+      max_height: 1
+
+      angle_min: -3.14
+      angle_max: 3.14
+      angle_increment: 0.0087
+      scan_time: 0.05
+      range_min: 0.05
+      range_max: 1.5
+      use_inf: false
+
+      #concurrency_level affects number of pc queued for processing and the number of threadsused
+      # 0: Detect number of cores
+      # 1: Single threaded
+      # 2: inf : Parallelism level
+      concurrency_level: 1
+    </rosparam>
+  </node>
+
+  <!-- Filter Pointcloud 3 -->
+  <node name="statistical_outlier_removal_3" pkg="nodelet" type="nodelet"
+    args="load pcl/StatisticalOutlierRemoval vl53_pcl2laser_manager ">
+    <remap from="~input" to="/pointcloud_lidar3" />
+    <remap from="~output" to="/pointcloud_lidar3_filter" />
+    <rosparam>
+      mean_k: 10
+      stddev: 3.0
+    </rosparam>
+  </node>
+  <node pkg="nodelet" type="nodelet" name="vl53_pcl_to_laser_3"
+    args="load pointcloud_to_laserscan/pointcloud_to_laserscan_nodelet vl53_pcl2laser_manager">
+    <remap from="cloud_in" to="/pointcloud_lidar3_filter" />
+    <remap from="scan" to="lidar3" />
+    <rosparam>
+      target_frame: base_footprint
+      transform_tolerance: 0.01
+      min_height: 0.05
+      max_height: 1
+
+      angle_min: -3.14
+      angle_max: 3.14
+      angle_increment: 0.0087
+      scan_time: 0.05
+      range_min: 0.05
+      range_max: 1.5
+      use_inf: false
+
+      #concurrency_level affects number of pc queued for processing and the number of threadsused
+      # 0: Detect number of cores
+      # 1: Single threaded
+      # 2: inf : Parallelism level
+      concurrency_level: 1
+    </rosparam>
+  </node>
+
+  <!-- Filter Pointcloud 4 -->
+  <node name="statistical_outlier_removal_4" pkg="nodelet" type="nodelet"
+    args="load pcl/StatisticalOutlierRemoval vl53_pcl2laser_manager ">
+    <remap from="~input" to="/pointcloud_lidar4" />
+    <remap from="~output" to="/pointcloud_lidar4_filter" />
+    <rosparam>
+      mean_k: 10
+      stddev: 3.0
+    </rosparam>
+  </node>
+
+  <node pkg="nodelet" type="nodelet" name="vl53_pcl_to_laser_4"
+    args="load pointcloud_to_laserscan/pointcloud_to_laserscan_nodelet vl53_pcl2laser_manager">
+    <remap from="cloud_in" to="/pointcloud_lidar4_filter" />
+    <remap from="scan" to="lidar4" />
+    <rosparam>
+      target_frame: base_footprint
+      transform_tolerance: 0.01
+      min_height: 0.05
+      max_height: 1
+
+      angle_min: -3.14
+      angle_max: 3.14
+      angle_increment: 0.0087
+      scan_time: 0.05
+      range_min: 0.05
+      range_max: 1.5
+      use_inf: false
+
+      #concurrency_level affects number of pc queued for processing and the number of threadsused
+      # 0: Detect number of cores
+      # 1: Single threaded
+      # 2: inf : Parallelism level
+      concurrency_level: 1
+    </rosparam>
+  </node>
+
+</launch>

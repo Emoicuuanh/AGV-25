@@ -1,0 +1,9 @@
+# port: "/dev/ttyS0"
+baud: 115200
+
+foward_id: 1
+backward_id: 2
+
+use_modbus_t5k: true
+
+enable_use_two_followline_sensor: true

@@ -1,0 +1,9 @@
+{
+    "offset_x_direction": 0.05,
+    "max_error_sensor": 4,
+    "max_error_angle_sensor": 4,
+    "safety_job_undock": "FORWARD",
+    "footprint_undocking": "amr_run_alone",
+    "max_vel_undocking": 0.2,
+    "safety_job_docking": ""
+  }

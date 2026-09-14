@@ -1,0 +1,5 @@
+<launch>
+   <node name="qr_gls621" pkg="qr_gls621" type="qrCamDriverNode" output="log">
+      <rosparam file="$(find qr_gls621)/cfg/config_gls621.yaml" command="load" />
+   </node>
+</launch>

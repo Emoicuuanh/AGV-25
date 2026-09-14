@@ -1,0 +1,21 @@
+node: lidar_signal2
+visualization_marker_topic: visualization_marker_2
+topic: scan_2
+port: '/dev/ttyS1'
+baudrate: 115200
+
+
+laserscan_msg:
+  header:
+    frame_id: "laser_frame_2"
+
+  angle_min: 0 # Góc quét tối thiểu (0 độ)
+  angle_min_filter: 10
+  angle_max: 270 # Góc quét tối đa (270 độ)
+  angle_max_filter: 260
+  angle_increment: 0.5  # Bước góc giữa các mẫu
+  time_increment: 0.1 # Thời gian giữa các mẫu
+  scan_time : 0.1 # Thời gian quét toàn bộ
+  range_min : 0.0  # Khoảng cách tối thiểu
+  range_max : 6.0  # Khoảng cách tối đa
+  Hz: 8 # Tốc độ gửi message (10Hz)

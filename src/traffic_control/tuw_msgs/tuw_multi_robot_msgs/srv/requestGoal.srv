@@ -1,0 +1,8 @@
+# Request
+geometry_msgs/PoseStamped pose
+uint32 id
+bool cancle_goal
+---
+# Response
+bool success
+string status_message

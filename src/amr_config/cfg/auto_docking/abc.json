@@ -1,0 +1,27 @@
+
+    {
+        "name": "Pose_2",
+        "docking_params": {
+          "offset_x_from_last_pose": -0.25,
+          "offset_yaw_from_last_pose": 3.14,
+          "check_icp_after_reached": false
+        },
+        "params": {
+          "retry_time": 1,
+          "local_planner": "move_to_point",
+          "reconfigure": {
+            "forward_vel": 0.25,
+            "backward_vel": 0.0,
+            "rotate_vel": 0.9,
+            "angular_vel": 0.5,
+            "linear_acc": 0.1,
+            "angular_acc": 0.2,
+            "x_only_tolerance": false,
+            "ignore_rotate_last":false,
+            "rotate_only": false,
+            "distance_ignore_angular": 0.0,
+            "xy_tolerance": 0.1,
+            "yaw_tolerance": 0.1
+          }
+        }
+      },

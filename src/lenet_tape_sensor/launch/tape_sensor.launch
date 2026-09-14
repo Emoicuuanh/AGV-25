@@ -1,0 +1,5 @@
+<launch>
+   <node name="tape_sensor" pkg="lenet_tape_sensor" type="tape_sensor.py" output="screen" args="-m">
+      <rosparam file="$(find lenet_tape_sensor)/cfg/tape_sensor.yaml" command="load" />
+   </node>
+</launch>

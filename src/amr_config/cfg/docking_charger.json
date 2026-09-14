@@ -1,0 +1,29 @@
+{
+  "dist_check_go_in": 1,
+  "error_sensor_in_hub": 6,
+  "error_angle_sensor_in_hub": 6,
+  "error_sensor_out_of_hub": 6,
+  "error_angle_sensor_out_of_hub": 6,
+  "distance_turn_off_safety_when_docking": 0.8,
+  "safety_job_docking": "amr_docking_backward",
+  "footprint_dock": "amr_run_alone",
+  "enable_check_error_when_docking": true,
+  "max_vel_docking": 0.3,
+  "mirror_offsets": {
+    "hub": {
+      "x_offset": 0.5,
+      "y_offset": 0.1,
+      "comment": "Hub cách mirror ngược hướng"
+    },
+    "waiting": {
+      "x_offset": 1.20,
+      "y_offset": 0.1,
+      "comment": "Waiting cách mirror cùng hướng"
+    },
+    "temp": {
+      "x_offset": 1.20,
+      "y_offset": 0.1,
+      "comment": "Temp cách mirror cùng hướng"
+    }
+  }
+}

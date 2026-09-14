@@ -1,0 +1,62 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/mkac/cartographer_ws/install_isolated/include/**",
+        "/home/mkac/mkem_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/mkac/mkem_ws/src/agf_local_planner/include/**",
+        "/home/mkac/mkem_ws/src/agv_common_library/include/**",
+        "/home/mkac/mkem_ws/src/control_system/include/**",
+        "/home/mkac/mkem_ws/src/hins_se_driver/include/**",
+        "/home/mkac/mkem_ws/src/package_security/imu_tools/imu_complementary_filter/include/**",
+        "/home/mkac/mkem_ws/src/package_security/imu_tools/imu_filter_madgwick/include/**",
+        "/home/mkac/mkem_ws/src/package_security/kinematic/include/**",
+        "/home/mkac/mkem_ws/src/package_security/laser_filter/include/**",
+        "/home/mkac/mkem_ws/src/laser_filters/include/**",
+        "/home/mkac/mkem_ws/src/package_security/realsense-ros/realsense2_camera/include/**",
+        "/home/mkac/mkem_ws/src/package_security/robot_localization/include/**",
+        "/home/mkac/mkem_ws/src/package_security/robot_pose_ekf/include/**",
+        "/home/mkac/mkem_ws/src/rviz_navigation_plugin/include/**",
+        "/home/mkac/mkem_ws/src/scan_safety/include/**",
+        "/home/mkac/mkem_ws/src/sick_scan/include/**",
+        "/home/mkac/mkem_ws/src/slam_manager/include/**",
+        "/home/mkac/mkem_ws/src/agf_system/include/**",
+        "/home/mkac/mkem_ws/src/geometry2/tf2/include/**",
+        "/home/mkac/mkem_ws/src/geometry2/tf2_bullet/include/**",
+        "/home/mkac/mkem_ws/src/geometry2/tf2_eigen/include/**",
+        "/home/mkac/mkem_ws/src/geometry2/tf2_geometry_msgs/include/**",
+        "/home/mkac/mkem_ws/src/geometry2/tf2_kdl/include/**",
+        "/home/mkac/mkem_ws/src/geometry2/tf2_ros/include/**",
+        "/home/mkac/mkem_ws/src/geometry2/tf2_sensor_msgs/include/**",
+        "/home/mkac/mkem_ws/src/package_security/voice_and_lamp_alert/include/**",
+        "/home/mkac/mkem_ws/src/waypoints_global_planner/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_ar_marker_tracking/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_ar_pair_tracking/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_cmd_vel_mux/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_controllers/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_diff_drive_pose_controller/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_keyop/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_math_toolkit/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_navi_toolkit/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_navigator/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_safety_controller/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_velocity_smoother/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_virtual_sensor/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_waypoint_provider/include/**",
+        "/home/mkac/mkem_ws/src/yujin_ocs/yocs_waypoints_navi/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

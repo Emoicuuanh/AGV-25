@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=AMR
+Icon=/usr/share/pixmaps/amr.png
+Exec=terminator -e "zsh -c 'source /opt/ros/noetic/setup.zsh;source $HOME/robot_config/ros_config.sh; $ROS_WORKSPACE/src/ros_entry/scripts/amr_startup.sh 0 0;$SHELL'"

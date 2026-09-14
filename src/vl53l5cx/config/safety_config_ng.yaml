@@ -1,0 +1,29 @@
+scan_topic: '/scan'     # Scan to determine safety, detect obstacles
+scan_fov: 360           # Scan field of view
+
+# publish_vel: True       # publish or not safety velocity when detected obstacle
+# cmd_vel_input: '/auto_cmd_vel_mux/output'
+# cmd_vel_output: '/safety_cmd_vel'
+
+# Do not change those params below
+slice_size: 5
+min_ray: 3
+
+# footprint, scan safety will ignore obstacle with in this area
+footprint: '{"footprint":[[0.506,-0.32],[0.506,0.32],[-0.454,0.32],[-0.454,-0.32],[0.506,-0.32]]}'
+
+number_of_jobs: 3       # default: 4
+current_job: 1
+
+tolerance: 0.01 # sai so cho phep theo m
+time_out: 0.3 # theo s
+# Lidarvl53l5cx sensor
+use_lidarvl53l5cx: True
+lidarvl53l5cx_topic: '/lidarvl53l5cx/lidarvl53l5cx_ranges'
+lidarvl53l5cx_min_range: 0.25
+lidarvl53l5cx_offset: 0.1
+lidarvl53l5cx_sensors:
+  sensor_1: {index: 0, position_from_base_link:  [0.35, 0.20, 0.25]  }
+  sensor_2: {index: 1, position_from_base_link:  [0.45, -0.20, 0.25] }
+  sensor_3: {index: 2, position_from_base_link:  [-0.35, 0.19, 0.25] }
+  sensor_4: {index: 3, position_from_base_link:  [-0.35, -0.19, 0.25]}

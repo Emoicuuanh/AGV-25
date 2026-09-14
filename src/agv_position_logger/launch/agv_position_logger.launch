@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node name="agv_position_logger" pkg="agv_position_logger" type="logger.py" output="screen"/>
+
+</launch>

@@ -1,0 +1,9 @@
+#goal definition
+string SoundName
+bool   SoundLoop
+---
+#result definition
+string Result
+---
+#feedback
+string Feedback

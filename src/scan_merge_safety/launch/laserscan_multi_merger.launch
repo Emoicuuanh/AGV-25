@@ -1,0 +1,33 @@
+<launch>
+	<node pkg="scan_merge_safety" name="laserscan_combine_safety" type="laserscan_multi_merger" output="screen">
+
+		<!-- Laser scan merger -->
+		<param name="destination_frame" value="laser"/>
+		<param name="cloud_destination_topic" value="/combine_cloud"/>
+		<param name="scan_destination_topic" value="/scan"/>
+		<param name="laserscan_topics" value ="/scan1 /scan2 /scan3 /scan4" /> <!-- LIST OF THE LASER SCAN TOPICS TO SUBSCRIBE : /scan1 /scan2 -->
+		<param name="min_laser_to_merge" value="2"/>   <!-- Minimum number of laser topics received to publish laser merge -->
+
+		<param name="angle_min" value="-2.1"/>
+		<param name="angle_max" value="2.3"/>
+		<param name="angle_increment" value="0,008727"/>
+		<param name="scan_time" value="0.04"/>
+		<param name="range_min" value="0.30"/>
+		<param name="range_max" value="10.0"/>
+
+		<!-- safety status  -->
+		<!-- Enable check safety job function -->
+		<param name="check_safety_job" value="true"/>
+		<!-- Hz_of_safety_status  = Hz_of_laser_scan / div_factor_pub -->
+		<param name="div_factor_pub" value="2"/>
+		<!-- Max range of laser to check safety  -->
+		<param name="safety_range_max" value="4.0"/>
+		<!-- Safety job topic input -->
+		<param name="safety_job_topic" value="/safety_job_data"/>
+		<!-- Safety status topic output -->
+		<param name="safety_status_topic" value="/safety_status"/>
+		<!-- Min number of point to confirm have object in safety zone -->
+		<param name="min_point_safety" value="2"/>
+
+	</node>
+</launch>

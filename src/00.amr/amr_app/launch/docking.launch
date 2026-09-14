@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="docking_charger" type="docking_charger.py" name="docking_charger_server" output="screen"
+        args="--config_path $(find amr_config)/cfg" />
+</launch>

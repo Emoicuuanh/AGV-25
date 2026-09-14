@@ -1,0 +1,4 @@
+<launch>
+    <node name="client_agv" pkg="server" type="client_agv" output="log">
+    </node>
+</launch>

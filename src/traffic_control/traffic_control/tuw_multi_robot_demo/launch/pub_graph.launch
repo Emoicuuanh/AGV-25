@@ -1,0 +1,10 @@
+<launch>
+    <!-- <env name="ROSCONSOLE_STDOUT_LINE_BUFFERED" value="0"/>
+    <env name="ROSCONSOLE_FORMAT" value=""/>
+    <env name="ROSCONSOLE_LEVEL" value="INFO"/> -->
+    <node name="graph_publisher_node" pkg="tuw_voronoi_graph" type="graph_publisher_node" output="screen">
+        <param name="mongodb_uri" value="mongodb://localhost:27017" />
+        <param name="map_name" value="Tendo_1F" />
+        <remap from="graph" to="graph_topic"/>
+    </node>
+</launch>

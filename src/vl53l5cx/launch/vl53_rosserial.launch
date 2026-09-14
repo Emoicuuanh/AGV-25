@@ -1,0 +1,5 @@
+<launch>
+  <node name="vl53l5cx_serial" pkg="vl53l5cx" type="serial_esp_connect.py" output="screen">
+    <rosparam file="$(find vl53l5cx)/config/lidarvl53l5cx.yaml" command="load" />
+  </node>
+</launch>

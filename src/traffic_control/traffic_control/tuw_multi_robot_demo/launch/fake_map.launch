@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+    <!-- <arg name="room" default="cave" /> -->
+
+    <node pkg="tuw_voronoi_graph" type="pub_fake_map" name="pub_fake_map"/>
+</launch>

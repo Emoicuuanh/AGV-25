@@ -1,0 +1,14 @@
+{
+  "dist_check_go_in": 0.8,
+  "dist_check_go_out": 0.8,
+  "error_sensor_in_hub": 6,
+  "error_angle_sensor_in_hub": 6,
+  "error_sensor_out_of_hub": 6,
+  "error_angle_sensor_out_of_hub": 6,
+  "distance_turn_off_safety_when_docking": 0.8,
+  "safety_job_docking": "amr_docking",
+  "safety_job_undocking": "FORWARD",
+  "footprint_dock": "amr_run_alone",
+  "foorprint_undock": "amr_run_alone",
+  "enable_check_error_when_docking": true
+}

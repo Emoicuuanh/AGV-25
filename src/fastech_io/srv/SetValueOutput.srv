@@ -1,0 +1,19 @@
+# number pin change: 0 - 31
+int8 pin
+# value change : True{on} , False {off}
+bool value
+# mode: Currently there are 2 modes, mod = 1 just on/off , mod = 2Pwm
+int8 mode
+
+# use only when mod = 2, if mod = 1 nothing change
+# period_ms = cycle pwm = ontime + offtime, max_period_ms = 65535
+int64 period_ms
+# ontime_ms = period_ms - time_off, max_ontime_ms = 65535
+int64 ontime_ms
+# total number toggle
+int64 conut_time
+#max_cout_time = 4294967295, mid_cout_time = 1
+---
+# 0: NG
+# 1: OK
+bool result

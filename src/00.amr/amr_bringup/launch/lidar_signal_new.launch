@@ -1,0 +1,43 @@
+<launch>
+    <!-- Arguments -->
+    <arg name="use_visualization_marker" default="false" />
+    <param name="use_marker" type="bool" value="$(arg use_visualization_marker)" />
+    <arg name="subfix" default="py" />
+    <arg name="use_rviz" default="false" />
+    <arg name="log_level" default="2" />
+    <!-- richbeam 0.50 -->
+    <!-- 11.110 dang sau 11.111 dang truoc -->
+    <arg name="laser_1_ip" default="192.168.0.100" />
+    <arg name="laser_2_ip" default="192.168.0.101" />
+    <!-- tim781 0.51 -->
+    <!-- <arg name="laser_safety_2_ip" default="192.168.0.52"/> -->
+
+    <include file="$(find amr_bringup)/launch/richbeam.launch">
+
+        <arg name="laser_1_ip" value="$(arg laser_1_ip)" />
+        <arg name="laser_2_ip" value="$(arg laser_2_ip)" />
+        <!-- <arg name="laser_safety_2_ip" value="$(arg laser_safety_2_ip)"/> -->
+    </include>
+
+    <!-- <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="1" />
+        <arg name="pkg" value="amr_bringup" />
+        <arg name="file" value="scan_combine.launch" />
+        <arg name="node_name" value="scan_combine_delay" />
+    </include> -->
+
+    <!-- <rosparam file="$(find lidar_signal)/cfg/config.yaml" command="load" /> -->
+
+    <!-- <node name="lidar_signal1" pkg="lidar_signal" type="lidar.py" output="screen">
+        <rosparam file="$(find amr_config)/cfg/config_lidar_1.yaml" />
+    </node>
+
+    <node name="lidar_signal2" pkg="lidar_signal" type="lidar.py" output="screen">
+        <rosparam file="$(find amr_config)/cfg/config_lidar_2.yaml" />
+    </node> -->
+    <group if="$(arg use_rviz)">
+        <include file="$(find lidar_signal)/launch/rviz.launch" />
+    </group>
+
+
+</launch>

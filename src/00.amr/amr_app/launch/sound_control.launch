@@ -1,0 +1,5 @@
+<launch>
+    <node name="sound_control_server" pkg="sound_control" type="sound_control_server.py"
+        output="screen"
+        args="--config_file $(find amr_config)/cfg/sound_remap.yaml" />
+</launch>

@@ -1,0 +1,49 @@
+<launch>
+  <arg name="laser_1_ip" default="192.168.5.50"/>
+  <arg name="laser_2_ip" default="192.168.5.51"/>
+	<!-- <arg name="laser_safety_2_ip" default="192.168.5.52"/> -->
+
+  <!-- x y z rz(yaw), ry(pitch), rx(roll) -->
+  <!-- 0.7854 = pi/4 -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="scanner1_to_map" args="0.41054 0.29594 0.13532 0.7854 0.0 3.1415 base_link laser_1 100" /> -->
+  <!-- -2.3546 = -pi + pi/4 -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="scanner2_to_map" args="-0.41054 -0.29594 0.13532 -2.3546 0.0 3.1415 base_link laser_2 100" /> -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.0 0.0 0.13532 0.0 0.0 0.0 base_link laser 100" /> -->
+
+  <node name="richbeam_lidar" pkg="lakibeam1" type="lakibeam1_scan_node" output="screen">
+    <remap from="/richbeam_lidar/scan_1" to="/scan_1" />
+        <param name="frame_id" type="string" value="laser_frame_1"/><!--frame_id设置-->
+        <param name="output_topic" type="string" value="scan_1" /><!--topic设置-->
+        <param name="inverted" type="bool" value="false"/><!--配置是否倒装,true倒装-->
+        <param name="hostip" type="string" value="192.168.0.10"/><!--配置本机监听地址，0.0.0.0表示监听全部-->
+        <param name="sensorip" type="string" value="$(arg laser_1_ip)"/><!--配置sensor地址-->
+        <param name="port" type="string" value="2368"/><!--配置本机监听端口-->
+        <param name="angle_offset" type="int" value="0"/><!--配置点云旋转角度，可以是负数-->
+
+        <param name="scanfreq" type="string" value="30" /><!--配置扫描频率，范围：10、20、25、30-->
+        <param name="filter" type="string" value="3" /><!--配置滤波选项，范围：3、2、1、0 -->
+        <param name="gain_factor" type="string" value="10" /><!--配置雷达增益系数，范围小于50-->
+        <param name="filter_threshold" type="string" value="170" /><!--配置雷达滤波阈值，范围大于130-->
+        <param name="laser_enable" type="string" value="true" /><!--雷达扫描使能，范围：true、false-->
+        <param name="scan_range_start" type="string" value="70" /><!--雷达扫描起始角度，范围：45~315-->
+        <param name="scan_range_stop" type="string" value="310" /><!--雷达扫描结束角度，范围：45~315，结束角度必须大于起始角度-->
+  </node>
+  <node name="sick_tim_7xx_2" pkg="sick_scan" type="sick_generic_caller"  respawn="false" output="screen">
+    <param name="scanner_type" type="string" value="sick_tim_7xx" />
+    <param name="frame_id" value="laser_frame_2"/>
+    <param name="min_ang" type="double" value="-1.95" /><!-- -135° -->
+    <param name="max_ang" type="double" value="1.95" /><!-- 135° -->
+    <param name="range_max" type="double" value="100.0" />
+    <param name="intensity" type="bool" value="True" />
+    <param name="hostname" type="string" value="$(arg laser_2_ip)" />
+    <param name="port" type="string" value="2112" />
+    <param name="timelimit" type="int" value="5" />
+    <remap from="scan" to="scan_2" />
+    <remap from="cloud" to="cloud_2" />
+    <remap from="encoder" to="sick_scan/encoder" />
+  </node>
+
+
+
+
+</launch>

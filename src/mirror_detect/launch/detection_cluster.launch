@@ -1,0 +1,29 @@
+<launch>
+    <!-- <arg name="mirror" default="true"/> -->
+    <arg name="launch_pf_description" default="false"/>
+
+    <param name="/use_sim_time" value="false"/>
+
+    <!-- Use this package: http://wiki.ros.org/pointcloud_to_laserscan -->
+    <!-- <node pkg="pointcloud_to_laserscan" type="laserscan_to_pointcloud_node" name="laserscan_to_pointcloud" output="screen">
+        <remap from="scan_in" to="scan_laser"/>
+        <remap from="cloud" to="mirror_detect/input_cloud"/>
+        <param name="intensity_discard" value="900"/>
+        <param name="mirror_detect" value="true"/>
+        <param name="yaml_file_path_" value="/home/thinh/catkin_ws/src/pointcloud_to_laserscan/cfg/intensity_range.yaml"/>
+    </node> -->
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mirror_detect)/rviz/rviz_mirror.rviz" required="true" /> -->
+     <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="w2orld_to_laser" args="0 0 0.0 0 0 0 base_footprint base_link"/> -->
+
+
+
+
+    <node pkg="mirror_detect" type="mirror_detect_node" name="mirror_detect_node" respawn="false" output="screen">
+        <!-- <remap from="cloud" to="mirror_detect/input_cloud"/> -->
+        <remap from="cloud" to="scan_1"/>
+        <rosparam file="$(find mirror_detect)/config/detection_param_richbeam.yaml" command="load" />
+
+        <!-- <param name="mirror_type" value="1"/> -->
+    </node>
+
+</launch>

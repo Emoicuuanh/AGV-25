@@ -1,0 +1,6 @@
+<launch>
+	<node pkg="fastech_io" name="fas_record" type="record_fas.py" output="screen">
+		<rosparam file="$(find fastech_io)/cfg/fas_record.yaml" command="load" />
+	</node>
+    <node pkg="fastech_io" name="pub_io_test_fas" type="pub_test.py"></node>
+</launch>

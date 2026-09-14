@@ -1,0 +1,51 @@
+led_effect: {
+  MANUAL:                       {type: 3, r: 0, g: 0, b: 255, duration: 0},                       # BLUE
+  EMG:                          {type: 3, r: 255, g: 0, b: 0, duration: 0},                       # RED
+  MAPPING:                      {type: 3, r: 0, g: 255, b: 255, duration: 0},                     # CYAN
+  WAIT_RESPOND:                 {type: 9, r: 0, g: 0, b: 0, duration: 0},                         # WHITE CYCLE
+  PAUSED:                       {type: 3, r: 255, g: 255, b: 0, duration: 0},                     # YELLOW
+  WAITING:                      {type: 3, r: 0, g: 255, b: 0, blink_interval: 500},               # GREEN BLINK 1s
+  BATTERY_LOW:                  {type: 3, r: 160, g: 50, b: 168, duration: 0},                    # VIOLET
+  MANUAL_CHARGING:              {type: 16, duration: 100},                                        # CHARGING
+  AUTO_CHARGING:                {type: 17, duration: 100},                                        # CHARGING
+  CHARGING_READY:               {type: 18, duration: 100},                                        # CHARGING
+  FATAL_ERROR:                  {type: 3, r: 255, g: 255, b: 255, blink_interval: 500},           # WHILE BLINK 500ms
+  GENERAL_ERROR:                {type: 3, r: 255, g: 0, b: 0, blink_interval: 1000},              # RED BLINK 1s
+  CHARGING_ERROR:               {type: 3, r: 255, g: 0, b: 0, blink_interval: 200},               # RED BLINK 200ms
+  SAFETY_STOP:                  {type: 3, r: 255, g: 102, b: 0, blink_interval: 500},             # ORANGE BLINK 500ms
+  MOVING_ERROR:                 {type: 3, r: 255, g: 0, b: 0, blink_interval: 200},             # ORANGE BLINK 200ms
+  SAFETY_DISABLED:              {type: 3, r: 255, g: 102, b: 0, duration: 0},                     # ORANGE
+  GOING_TO_POS:                 {type: 3, r: 0, g: 255, b: 0, duration: 0},                       # GREEN
+  MOTOR_OFF:                    {type: 3, r: 255, g: 0, b: 0, blink_interval: 2000},              # RED BLINK 2s
+  MISSION_ERROR:                {type: 3, r: 255, g: 0, b: 0, blink_interval: 100},               # RED BLINK 100ms
+  RUNNING_NORMAL:               {type: 3, r: 0, g: 255, b: 0, duration: 0},                       # GREEN BLINK 200ms
+  WAITING_INIT_POSE:            {type: 11},                                                       # FADE WHITE BLUE
+}
+
+# 0: WHITE
+# 1: ORANGE
+# 2: RAINBOW
+# 3: CUSTOM_RGB
+# 4: Rainbow fast_led
+# 5: Đuổi nhiều màu dải màu ngắn
+# 6: Đuổi fade nhiều màu
+# 7: Đuổi nhiều màu dải màu dài
+# 8: Chớp trắng
+# 9: Đuổi màu trắng
+# 10: Đuổi trắng
+# 11: Fade xanh lam trắng
+# 12: Fade xanh lam trắng
+# 13: Rainbow fast_led
+# 14: Nhiều màu đuổi
+# 15: Nhiều màu đuổi fade
+# 16: Manual charging
+# 16: Auto charging
+# 16: Charging ready
+
+# define RED     strip.Color(255,   0,   0) // Red
+# define GREEN   strip.Color(  0, 255,   0) // Green
+# define BLUE    strip.Color(  0,   0, 255) // Blue
+# define WHITE   strip.Color(127, 127, 127)
+# define YELLOW  strip.Color(255, 255, 0)
+# define ORANGE  strip.Color(255, 127, 0)
+# define VIOLET  strip.Color(160, 50, 168)

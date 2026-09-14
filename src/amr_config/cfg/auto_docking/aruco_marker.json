@@ -1,0 +1,55 @@
+{
+  "name": "Aruco Marker",
+  "marker_params": {
+    "offset_x_from_detected": 0.35,
+    "offset_y_from_detected": 0.0,
+    "offset_yaw_from_detected": 0.0,
+    "goal_allow_dock_distance": 2.0,
+    "detected_angle_allow": 0.3,
+    "detected_distance_allow": 3.0,
+    "angle_robot_vs_detected": 0.0,
+    "distance_left_safety_off": 0.3,
+    "safety_job": "amr_docking",
+    "footprint": "amr_run_alone"
+  },
+  "detection_params":
+    {
+    },
+  "params": {
+    "frame_id": "odom",
+    "overwrite_planner_setting": true
+  },
+  "waypoints": [
+    {
+      "name": "Pose_1",
+      "docking_params": {
+        "offset_x_from_last_pose": -0.35,
+        "offset_yaw_from_last_pose": 3.1415,
+        "check_icp_after_reached": false
+      },
+      "params": {
+        "retry_time": 1,
+        "local_planner": "move_to_point",
+        "reconfigure": {
+          "forward_vel": 0.2,
+          "forward_vel_min": 0.05,
+          "backward_vel": 0.1,
+          "backward_vel_min": 0.05,
+          "rotate_vel": 0.9,
+          "rotate_vel_min": 0.05,
+          "angular_vel": 0.5,
+          "linear_acc": 0.1,
+          "angular_acc": 0.2,
+          "x_only_tolerance": false,
+          "ignore_rotate_last":false,
+          "rotate_only": false,
+          "use_pid_control": true,
+          "distance_ignore_angular": 0.0,
+          "xy_tolerance": 0.05,
+          "yaw_tolerance": 0.08
+        }
+      }
+    }
+  ],
+  "use_ultrasonic": false
+}

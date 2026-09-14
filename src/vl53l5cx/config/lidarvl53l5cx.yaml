@@ -1,0 +1,11 @@
+port: 2-5
+baud: 115200
+port_pid: 6000
+
+
+lidar_vl53l5cx: {
+  sensor1 :   {pin: 6},
+  sensor2:    {pin: 37},
+  sensor3:    {pin: 15},
+  sensor4:    {pin: 16},
+}

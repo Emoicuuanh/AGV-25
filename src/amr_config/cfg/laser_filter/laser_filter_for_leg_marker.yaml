@@ -1,0 +1,43 @@
+scan_filter_chain:
+- name: range
+  type: laser_filters/LaserScanRangeFilter
+  params:
+    use_message_range_limits: false
+    lower_threshold: -.inf
+    upper_threshold: 3.0
+    lower_replacement_value: -.inf
+    upper_replacement_value: .inf
+
+# LaserScanBoxFilter: This is a filter that removes points in a laser scan inside of a cartesian box
+- name: left_box
+  type: laser_filters/LaserScanBoxFilter
+  params:
+    box_frame: base_link
+    min_x: -3.0
+    max_x: 3.0
+    min_y: -3.0
+    max_y: -1.0
+    min_z: -1.0
+    max_z: 1.0
+
+- name: right_box
+  type: laser_filters/LaserScanBoxFilter
+  params:
+    box_frame: base_link
+    min_x: -3.0
+    max_x: 3.0
+    min_y: 1.0
+    max_y: 3.0
+    min_z: -1.0
+    max_z: 1.0
+
+# - name: front_box
+#   type: laser_filters/LaserScanBoxFilter
+#   params:
+#     box_frame: base_link
+#     min_x: 1.0
+#     max_x: 3.0
+#     min_y: -1.0
+#     max_y: 1.0
+#     min_z: -1.0
+#     max_z: 1.0

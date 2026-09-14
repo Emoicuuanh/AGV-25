@@ -1,0 +1,6 @@
+<launch>
+	<arg name="subfix" default="py" />
+
+	<node name="led_control" pkg="led_control" type="led_control.$(arg subfix)" output="screen"
+		args="--config_file $(find amr_config)/cfg/led_effect.yaml" />
+</launch>

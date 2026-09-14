@@ -1,0 +1,28 @@
+# Created on: Oct 29, 2012
+#     Author: jorge
+# Configuration for subscribers to multiple cmd_vel sources.
+#
+# Individual subscriber configuration:
+#   name:           Source name
+#   topic:          The topic that provides cmd_vel messages
+#   timeout:        Time in seconds without incoming messages to consider this topic inactive
+#   priority:       Priority: an UNIQUE unsigned integer from 0 (lowest) to MAX_INT
+#   short_desc:     Short description (optional)
+
+subscribers:
+  - name:        "Teleop joystick"
+    topic:       "input/teleop_joy"
+    timeout:     1.0
+    priority:    11
+  - name:        "Retry docking vel"
+    topic:       "input/retry_docking"
+    timeout:     1.0
+    priority:    10
+  - name:        "Safe reactive controller"
+    topic:       "input/safety_controller"
+    timeout:     0.2
+    priority:    9
+  - name:        "Auto"
+    topic:       "input/auto"
+    timeout:     0.5
+    priority:    7

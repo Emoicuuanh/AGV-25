@@ -1,0 +1,3 @@
+<launch>
+    <node name="hmi_manager" pkg="hmi_for_agv_release" type="hmi_manager.py" />
+</launch>

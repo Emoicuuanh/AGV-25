@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="docking_charger" type="undocking_charger.py" name="un_docking" output="screen"
+        args="--config_path $(find amr_config)/cfg" />
+</launch>

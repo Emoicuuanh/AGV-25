@@ -1,0 +1,23 @@
+<launch>
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="safety_zone_number0"
+    args="0 0 0 0 0 0 /base_link /safety_zone_n0 100" />
+  <node pkg="tf" type="static_transform_publisher" name="safety_zone_number1"
+    args="0 0 0 0 0 0 /base_link /safety_zone_n1 100" />
+  <node pkg="tf" type="static_transform_publisher" name="safety_zone_number2"
+    args="0 0 0 0 0 0 /base_link /safety_zone_n2 100" />
+
+  <node pkg="vl53l5cx" type="scan_safety_pcl.py" name="safety_pointcloud_vl53l5cx" output="screen" /> -->
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find vl53l5cx)/launch/safety_scan.rviz"
+  /> -->
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="lidar_1"
+    args="0.35 0.25 0.25 1.570796 0 1.570796 /base_link /base_laser_1 100" />
+  <node pkg="tf" type="static_transform_publisher" name="lidar_2"
+    args="0.35 -0.25 0.25 1.570796 0 1.570796 /base_link /base_laser_2 100" />
+  <node pkg="tf" type="static_transform_publisher" name="lidar_3"
+    args="-0.35 0.25 0.25 -1.570796 0 1.570796 /base_link /base_laser_3 100" />
+  <node pkg="tf" type="static_transform_publisher" name="lidar_4"
+    args="-0.35 -0.25 0.25 -1.570796 0 1.570796 /base_link /base_laser_4 100" /> -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find vl53l5cx)/launch/robot.rviz" />
+</launch>

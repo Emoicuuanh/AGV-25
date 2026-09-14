@@ -1,0 +1,33 @@
+# dock_filepath: '/home/thinh/catkin_ws/src/docking/pcd/mirror.pcd'
+RS_max_iter:            252 # 252
+RS_min_inliers:         2
+RS_dist_thresh:         0.025
+RANSAC_on_clusters:     True
+Voxel_leaf_size:        0.001
+# EC_cluster_tolerance:   0.14
+EC_cluster_tolerance:   0.1 #tb3 0.05
+EC_min_size:            2
+EC_max_size:            60
+laser_frame:  'laser'
+robot_frame: 'base_link'
+#Bar marker detection
+BAR_length: 0.035 # leg 1 (outside)
+BAR_length_tolerance: 0.029
+BAR_distance: 3.0 # leg 2 (inside)
+BAR_distance_tolerance: 0.1
+#ICP detection
+# mirror radius
+mirror_type: 1 # 0-line 1-circle
+radius_detect: 0.038 # 0.036 
+# radius_tolerance: 0.024 #0.01
+icp_type: 2 # 0 = circle 1 = point cloud 2 = point
+max_intensity_time: 3.3
+max_cluster_size: 30
+intensity_times: 1.2
+max_dis_discard: 0.5
+mirror_point_publish: 1
+publish_scan: True
+use_laser: true
+use_diff_laser: false
+intensity_range: "/home/thinh/lineHubDockingMirror/src/mirror_detect/config/intensity_range_tim.yaml"
+scan_mirror_topic_: 'scan_mirror'

@@ -1,0 +1,386 @@
+battery:
+  low_threshold: 10
+  empty_threshold: 5
+motor:
+  max_ampe: 50
+sound:
+  play_sound_when_error: true
+option:
+  use_safety: true
+  use_motor_release: true
+  use_auto_man_sw: false
+  use_bumper: true
+  use_followline: false
+  use_qr: true
+
+# TODO: Config standard button in /standart_io topic
+# server:
+#   address: "http://192.168.20.114:1337/parse/"
+#   data:
+#     agv: "AGV 03"
+#   header:
+#     X-Parse-Application-Id: "APPLICATION_ID"
+#     X-Parse-Master-Key: "YOUR_MASTER_KEY"
+#     Content-Type: "application/json"
+
+# TODO: Config standard button in /standart_io topic
+button:
+  - front_start_button:
+      field_name: start_1_button
+      action:
+        WAITING:
+        press: FRONT_START_BUTTON
+        RUNNING: NOTHING
+  - front_pause_button:
+      field_name: stop_1_button
+      action:
+        RUNNING:
+        press: PAUSE
+        hold: STOP
+  - rear_start_button:
+      field_name: start_2_button
+      action:
+        WAITING:
+        press: REAR_START_BUTTON
+        RUNNING: NOTHING
+  - rear_pause_button:
+      field_name: stop_2_button
+      action:
+        RUNNING:
+        press: PAUSE
+        hold: STOP
+
+# TODO: Config trigger here
+trigger:
+  - FRONT_START_BUTTON
+  - REAR_START_BUTTON
+
+error_code_remap:
+  EMG: 1
+  BATTERY_EMPTY: 2
+  MOTOR_OFF: 3
+
+# Thứ tự ưu tiên của error_list phụ thuộc vào thứ tự của module
+module_list:
+  # Modules which all type of robot need
+  # - template_module:
+  #     display_name: Template module
+  #     error_list:           # Define special ERROR for special LED EFFECT. ERROR only belong to this module (not belong to sub module)
+  #     - ERROR_1:
+  #         detail_status: ERROR_A    # Display in app
+  #         led_status: LED_A         # Display in led
+  #     - ERROR_2:
+  #         detail_status: ERROR_B
+  #     state_list:
+  #     - STATE_1:
+  #         detail_status: STATE_A
+  #         led_status: LED_B
+  #     - STATE_2:
+  #         detail_status: STATE_B
+
+  - mission_manager:
+      error_code_number_default: 4
+      display_name: Mission
+      error_list:
+        - DUPLICATE_MARKER:
+            detail_status: DUPLICATE_MARKER
+        - MARKER_DIR_WRONG:
+            detail_status: MARKER_DIR_WRONG
+        - MISSION_EMPTY:
+            detail_status: MISSION_EMPTY
+        - MISSING_ACTION_DATA:
+            detail_status: MISSING_ACTION_DATA
+        - SERVER_DATA_ERROR:
+            detail_status: SERVER_DATA_ERROR
+        - ERROR:
+            reset_when_mission_error: false
+            error_code_number: 5
+            detail_status: MISSION_ERROR
+            led_status: MISSION_ERROR
+  - slam_manager:
+      error_code_number_default: 4
+      display_name: Slam
+      timeout: 25.0
+  - un_docking:
+      error_code_number_default: 4
+      display_name: Undocking
+      pause_if_error: false
+      state_list:
+        - GO_OUT_CHARGE:
+            detail_status: GOING_TO_POS
+            led_status: GOING_TO_POS
+            sound_status: Moving
+        - STOP_BY_SAFETY:
+            detail_status: SAFETY_STOP
+            led_status: SAFETY_STOP
+            sound_status: SAFETY_STOP
+  # - followline_action:
+  #     display_name: Followline Action
+  #     pause_if_error: false
+  #     error_list:
+  #         - NOT_FIND_CROSS_LINE:
+  #             detail_status: NOT_FIND_CROSS_LINE
+  #             led_status: MOVING_ERROR
+  #         - NOT_FIND_TAPE_ROTATION:
+  #             detail_status: NOT_FIND_TAPE_ROTATION
+  #             led_status: MOVING_ERROR
+  #         - MOTOR_NOT_FEEDBACK:
+  #             detail_status: MOTOR_NOT_FEEDBACK
+  #             led_status: MOVING_ERROR
+  #         - ROBOT_NOT_IN_LINE:
+  #             detail_status: ROBOT_NOT_IN_LINE
+  # state_list:
+  #     - MOVE:
+  #         detail_status: GOING_TO_POS
+  #         led_status: GOING_TO_POS
+  #         sound_status: Moving
+  #     - STOP_BY_SAFETY:
+  #         detail_status: SAFETY_STOP
+  #         led_status: SAFETY_STOP
+  #         sound_status: SAFETY_STOP
+  - moving_control:
+      error_code_number_default: 4
+      display_name: Moving
+      pause_if_error: false
+      error_list:
+        - ERROR:
+            detail_status: MOVING_ERROR
+            led_status: MOVING_ERROR
+      state_list:
+        - MOVING:
+            detail_status: GOING_TO_POS
+            led_status: GOING_TO_POS
+            sound_status: Moving
+        - STOP_BY_SAFETY:
+            detail_status: SAFETY_STOP
+            led_status: SAFETY_STOP
+            sound_status: SAFETY_STOP
+        - WAIT_CLEAR_SAFETY:
+            detail_status: SAFETY_STOP
+            led_status: SAFETY_STOP
+  - hub_server:
+      error_code_number_default: 4
+      display_name: Hub
+      pause_if_error: false
+      error_list:
+        - COLLISION_POSSIBLE:
+            error_code_number: 6
+            detail_status: DOCKING_HUB_ERROR
+            led_status: MOVING_ERROR
+        - MOVING_DISCONNECTED:
+            detail_status: MOVING_DISCONNECTED
+            led_status: MOVING_ERROR
+        - NO_CART:
+            error_code_number: 7
+            detail_status: NO_CART
+            led_status: MOVING_ERROR
+        - WRONG_CART:
+            error_code_number: 8
+            detail_status: WRONG_CART
+            led_status: MOVING_ERROR
+        - UNABLE_PLACE_CART:
+            error_code_number: 9
+            detail_status: UNABLE_PLACE_CART
+            led_status: MOVING_ERROR
+        - DETECT_MIRROR_ERROR:
+            error_code_number: 16
+            detail_status: DETECT_MIRROR_ERROR
+            led_status: MOVING_ERROR
+  - matehan_server:
+      error_code_number_default: 4
+      display_name: Matehan
+      pause_if_error: false
+      error_list:
+        - EMG_MATEHAN:
+            error_code_number: 13
+            detail_status: EMG_MATEHAN
+            led_status: EMG
+        - RESET_AGV_WHEN_EMG_MATEHAN:
+            error_code_number: 13
+            detail_status: RESET_AGV_WHEN_EMG_MATEHAN
+            led_status: EMG
+        - COLLISION_POSSIBLE:
+            error_code_number: 6
+            detail_status: DOCKING_MATEHAN_ERROR
+            led_status: MOVING_ERROR
+        - MOVING_DISCONNECTED:
+            detail_status: MOVING_DISCONNECTED
+            led_status: MOVING_ERROR
+        - NO_CART:
+            error_code_number: 7
+            detail_status: NO_CART
+            led_status: MOVING_ERROR
+        - WRONG_CART:
+            error_code_number: 8
+            detail_status: WRONG_CART
+            led_status: MOVING_ERROR
+        - UNABLE_PLACE_CART:
+            error_code_number: 9
+            detail_status: UNABLE_PLACE_CART
+            led_status: MOVING_ERROR
+        - DETECT_MIRROR_ERROR:
+            error_code_number: 16
+            detail_status: DETECT_MIRROR_ERROR
+            led_status: MOVING_ERROR
+  #   - elevator_server:
+  #       error_code_number_default: 4
+  #       display_name: Elevator
+  #       pause_if_error: false
+  #       error_list:
+  #         - EMG_ELEVATOR:
+  #             error_code_number: 10
+  #         - PAUSED_BY_ELEVATOR:
+  #             error_code_number: 10
+  #         - TIMEOUT_WHEN_WAIT_ELEVATOR_ALLOW_MOVE:
+  #             error_code_number: 11
+  #         - NETWORK_ERROR:
+  #             error_code_number: 12
+  #         - COLLISION_POSSIBLE:
+  #             error_code_number: 6
+  #             detail_status: DOCKING_ELEVOTOR_ERROR
+  #             led_status: MOVING_ERROR
+  #         - MOVING_DISCONNECTED:
+  #             detail_status: MOVING_DISCONNECTED
+  #             led_status: MOVING_ERROR
+  #         - NO_CART:
+  #             error_code_number: 7
+  #             detail_status: NO_CART
+  #             led_status: MOVING_ERROR
+  #         - WRONG_CART:
+  #             error_code_number: 8
+  #             detail_status: WRONG_CART
+  #             led_status: MOVING_ERROR
+  #         - UNABLE_PLACE_CART:
+  #             error_code_number: 9
+  #             detail_status: UNABLE_PLACE_CART
+  #             led_status: MOVING_ERROR
+
+  - docking_charger_server:
+      error_code_number_default: 4
+      display_name: docking_charger
+      pause_if_error: false
+      error_list:
+        - COLLISION_POSSIBLE:
+            error_code_number: 6
+            detail_status: DOCKING_CHARGE_ERROR
+            led_status: MOVING_ERROR
+        - MOVING_DISCONNECTED:
+            detail_status: MOVING_DISCONNECTED
+            led_status: MOVING_ERROR
+  - joystick_manager:
+      display_name: joystick_manager
+      pause_if_error: false
+      state_list:
+        - STOP_BY_SAFETY:
+            detail_status: SAFETY_STOP
+            led_status: SAFETY_STOP
+            sound_status: SAFETY_STOP
+        - SAFETY_OFF:
+            detail_status: SAFETY_DISABLED
+            led_status: SAFETY_DISABLED
+            sound_status: SAFETY_DISABLED
+  - charging_process:
+      error_code_number_default: 4
+      display_name: Charging process
+      pause_if_error: false
+      error_list:
+        - CONTACT_ERROR:
+            detail_status: CHARGING_ERROR
+            led_status: CHARGING_ERROR
+      state_list:
+        - AUTO_CHARGING:
+            detail_status: AUTO_CHARGING
+            led_status: AUTO_CHARGING
+        - MANUAL_CHARGING:
+            detail_status: MANUAL_CHARGING
+            led_status: MANUAL_CHARGING
+        - FULL:
+            detail_status: CHARGING_FULL
+            led_status: WAITING
+  - joystick_manager:
+      error_code_number_default: 4
+      display_name: joystick_manager
+      pause_if_error: false
+      state_list:
+        - STOP_BY_SAFETY:
+            detail_status: SAFETY_STOP
+            led_status: SAFETY_STOP
+            sound_status: SAFETY_STOP
+        - SAFETY_OFF:
+            detail_status: SAFETY_DISABLED
+            led_status: SAFETY_DISABLED
+            sound_status: SAFETY_DISABLED
+  - log_odom:
+      error_code_number_default: 4
+      display_name: Odom logging
+      parse_json: false
+      handle_when_sim: false
+  # - sound:
+  #     display_name: Sound
+  #     status_topic: sound_status
+  #     status_msg: std_stamped_msgs/StringStamped
+  #     parse_json: false
+  #     handle_when_sim: true
+  - led_control:
+      error_code_number_default: 4
+      display_name: Led
+      status_topic: led_control_alive
+      status_msg: std_stamped_msgs/StringStamped
+      parse_json: false
+      handle_when_sim: false
+  - safety_module:
+      error_code_number_default: 4
+      display_name: Safety
+      status_topic: /safety_status
+      status_msg: safety_msgs/SafetyStatus
+      parse_json: false
+      handle_when_sim: false
+  - keya_servo:
+      error_code_number_default: 4
+      display_name: Motor
+      status_topic: /motor_encoder
+      status_msg: agv_msgs/EncoderDifferential
+      parse_json: false
+      timeout: 0.5 # Second, default = 2.0 s
+      handle_when_sim: false
+
+  - safety_sensor_fw:
+      error_code_number_default: 4
+      display_name: Forward safety sensor
+      status_topic: /scan_1
+      status_msg: sensor_msgs/LaserScan
+      parse_json: false
+      timeout: 0.5
+      handle_when_sim: false
+  - safety_sensor_bw:
+      error_code_number_default: 4
+      display_name: Backward safety sensor
+      status_topic: /scan_2
+      status_msg: sensor_msgs/LaserScan
+      parse_json: false
+      timeout: 0.5
+      handle_when_sim: false
+  - safety_vl53_sensor_fw:
+      error_code_number_default: 4
+      display_error: false
+      display_name: F
+      status_topic: /vl53l5cx_r1
+      status_msg: vl53l5cx/Vl53l5cxRanges
+      parse_json: false
+      handle_when_sim: false
+  - safety_vl53_sensor_bw:
+      error_code_number_default: 4
+      display_error: false
+      display_name: B
+      status_topic: /vl53l5cx_r3
+      status_msg: vl53l5cx/Vl53l5cxRanges
+      parse_json: false
+      handle_when_sim: false
+#   - qr_tracker:
+#       error_code_number_default: 4
+#       display_name: LOST_QR
+#       error_list:
+#         - LOST LABEL AT START OR END OF PATH:
+#             error_code_number: 14
+#         - LOST LABEL IN PATH:
+#             error_code_number: 15

@@ -1,0 +1,68 @@
+port: 2-4.2:1.0
+port_pid: 60000
+auto_find_from_pid: false
+baud: 115200
+timeout: 0.1
+
+rate: 50
+sensorstate_rate: 10
+
+use_base_controller: True
+base_controller_rate: 20
+
+use_odom: True
+use_dac_motor: True
+use_imu: False
+use_arduino_encoder: True
+use_outside_encoder: False
+
+gear_motor: 40 # Only for DAC motor
+
+base_frame: base_link
+footprint_frame: base_footprint
+use_tower_lamp: False
+mounting_direction_motor : True
+
+# Arduino MEGA2560 Analog pin mapping:
+#   A0: 54,
+#   A1: 55,
+#   A2: 56,
+#   A3: 57,
+#   A4: 58,
+#   A5: 59,
+#   A6: 60,
+#   A7: 61,
+#   A8: 62,
+#   A9: 63,
+#   A10: 64,
+#   A11: 65,
+#   A12: 66,
+#   A13: 67,
+#   A14: 68,
+#   A15: 69,
+
+auto_charging_relay_pin: 31
+
+sensors: {
+  # arduino_led:                  {pin: 13, type: Digital, rate: 5, direction: output, logic_type: low},
+  emg_button:                   {pin: 69, type: Digital, rate: 10, logic_type: low},                # A15
+  start_1_button:               {pin: 65, type: Digital, rate: 10, logic_type: low},                # A11
+  start_2_button:               {pin: 64, type: Digital, rate: 10, logic_type: low},                # A10
+  stop_1_button:                {pin: 63, type: Digital, rate: 10, logic_type: low},                # A9
+  stop_2_button:                {pin: 62, type: Digital, rate: 10, logic_type: low},                # A8
+  lift_min_level:               {pin: 66, type: Digital, rate: 5, logic_type: low},                 # A12
+  lift_max_level:               {pin: 67, type: Digital, rate: 5, logic_type: low},                 # A13
+  lift_work_level:              {pin: 68, type: Digital, rate: 5, logic_type: low},                 # A14
+  release_motor_sw:             {pin: 61, type: Digital, rate: 5, logic_type: low},                 # A7
+  auto_manual_sw:               {pin: 60, type: Digital, rate: 5, logic_type: low},                 # A6
+  manual_charging_detect:       {pin: 3, type: Digital, rate: 5, logic_type: low},                  # 3
+  auto_charging_detect:         {pin: 6, type: Digital, rate: 5, logic_type: low},                  # 6
+  # battery_vol:                  {pin: 54, type: AnalogFloat, rate: 0.5, value_to_vol_factor: 0.053763441}, # 1/MAX_ANALOG_DUTY * MAX_ANALOG_VOL * ANALOG_SCALE = (1/1023) * 5 *(1+10)/1
+  # charging_current:             {pin: 55, type: AnalogFloat, rate: 0.5, value_to_vol_factor: 0.053763441}, # 1/MAX_ANALOG_DUTY * MAX_ANALOG_VOL * ANALOG_SCALE
+}
+
+float_params: {
+  # battery_percent:              {rate: 0.5, code: 1},
+  # battery_vol:                  {rate: 0.2, code: 2},
+  # charging_current:             {rate: 0.2, code: 3},
+}

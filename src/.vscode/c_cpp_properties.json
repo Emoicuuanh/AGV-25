@@ -1,0 +1,50 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/mkac/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/mkac/catkin_ws/src/navigation/amcl/include/**",
+        "/home/mkac/catkin_ws/src/navigation/base_local_planner/include/**",
+        "/home/mkac/catkin_ws/src/navigation/carrot_planner/include/**",
+        "/home/mkac/catkin_ws/src/navigation/clear_costmap_recovery/include/**",
+        "/home/mkac/catkin_ws/src/coordinate_rfid/include/**",
+        "/home/mkac/catkin_ws/src/navigation/costmap_2d/include/**",
+        "/home/mkac/catkin_ws/src/docking/include/**",
+        "/home/mkac/catkin_ws/src/navigation/dwa_local_planner/include/**",
+        "/home/mkac/catkin_ws/src/follow_line/include/**",
+        "/home/mkac/catkin_ws/src/navigation/global_planner/include/**",
+        "/home/mkac/catkin_ws/src/lift/include/**",
+        "/home/mkac/catkin_ws/src/navigation/map_server/include/**",
+        "/home/mkac/catkin_ws/src/matehan/include/**",
+        "/home/mkac/catkin_ws/src/navigation/move_base/include/**",
+        "/home/mkac/catkin_ws/src/navigation/move_slow_and_clear/include/**",
+        "/home/mkac/catkin_ws/src/navigation/nav_core/include/**",
+        "/home/mkac/catkin_ws/src/navigation/navfn/include/**",
+        "/home/mkac/catkin_ws/src/rosserial/rosserial_server/include/**",
+        "/home/mkac/catkin_ws/src/rosserial/rosserial_test/include/**",
+        "/home/mkac/catkin_ws/src/navigation/rotate_recovery/include/**",
+        "/home/mkac/catkin_ws/src/scan_safety/include/**",
+        "/home/mkac/catkin_ws/src/sick_scan/include/**",
+        "/home/mkac/catkin_ws/src/slam_manager/include/**",
+        "/home/mkac/catkin_ws/src/teleop_twist_joy/include/**",
+        "/home/mkac/catkin_ws/src/vl53l5cx/include/**",
+        "/home/mkac/catkin_ws/src/voice_recognition/include/**",
+        "/home/mkac/catkin_ws/src/navigation/voxel_grid/include/**",
+        "/home/mkac/catkin_ws/src/yujin_ocs/yocs_cmd_vel_mux/include/**",
+        "/home/mkac/catkin_ws/src/yujin_ocs/yocs_velocity_smoother/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

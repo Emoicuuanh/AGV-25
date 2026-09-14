@@ -1,0 +1,15 @@
+<launch>
+  <!-- <arg name="frame_id" default="laser"/> -->
+
+  <node pkg="vl53l5cx" name="vl53_pcl_test" type="vl53l5cx_ros_node" output="screen">
+    <param name="arr_in_topic1" value="/vl53l5cx_r1" />
+    <param name="arr_in_topic2" value="/vl53l5cx_r2" />
+    <param name="arr_in_topic3" value="/vl53l5cx_r3" />
+    <param name="arr_in_topic4" value="/vl53l5cx_r4" />
+    <param name="pcl_out_topic1" value="/pointcloud_lidar1" />
+    <param name="pcl_out_topic2" value="/pointcloud_lidar2" />
+    <param name="pcl_out_topic3" value="/pointcloud_lidar3" />
+    <param name="pcl_out_topic4" value="/pointcloud_lidar4" />
+  </node>
+
+</launch>

@@ -1,0 +1,20 @@
+points:
+  - distance: 0.0
+    intensity_discard: 100
+    radius_tolerance: 0.022
+    
+  - distance: 5.0
+    intensity_discard: 30000 
+    radius_tolerance: 0.025
+  - distance: 10.0
+    intensity_discard: 20000
+    radius_tolerance: 0.026
+  - distance: 15.0
+    intensity_discard: 20000
+    radius_tolerance: 0.025
+  - distance: 20
+    intensity_discard: 20000
+    radius_tolerance: 0.028
+  - distance: 30
+    intensity_discard: 20000
+    radius_tolerance: 0.028

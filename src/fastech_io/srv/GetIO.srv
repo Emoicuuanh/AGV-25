@@ -1,0 +1,5 @@
+int64 pin
+---
+string name
+bool status_set
+int64 output_voltage

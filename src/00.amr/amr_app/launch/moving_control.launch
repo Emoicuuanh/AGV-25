@@ -1,0 +1,6 @@
+<launch>
+    <node name="moving_control" pkg="moving_control" type="moving_control_server.py" output="screen"
+        args="  --planner_map $(find amr_config)/cfg/moving_control/planner_map.yaml
+                --planner_setting $(find amr_config)/cfg/moving_control/planner_setting.yaml
+                --default_params $(find amr_config)/cfg/moving_control/default_params.json" />
+</launch>

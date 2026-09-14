@@ -1,0 +1,35 @@
+ip_address: 192.168.0.2
+port: 3001
+
+get_io_rate: 20 # Hz
+# USe IO from pinfalse - amount_pin
+amount_pin : 16
+G_type: BOTH
+# G_type = BOTH , INPUT, OUTPUT
+# type: Output , Input , Const
+# if  logic_type: true:
+# current_value: False == 0v
+# current_value: true = treo
+# current_value: true = treo
+fasteck_ezi_io: {
+
+  number_ount_six:              {pin: 6,  type: Input, current_value: False, logic_type: False},
+  lift_work_level:              {pin: 7,  type: Input, current_value: False, logic_type: False},
+  arduino_led:                  {pin: 2,  type: Input, current_value: False, logic_type: False},
+  emg_button:                   {pin: 1,  type: Input, current_value: False, logic_type: False},
+  start_2_button:               {pin: 3,  type: Input, current_value: False, logic_type: False},
+  stop_1_button:                {pin: 4,  type: Input, current_value: False, logic_type: False},
+  hen_make:                     {pin: 5,  type: Input, current_value: False, logic_type: False},
+  lift_min_level:               {pin: 0,  type: Input, current_value: False, logic_type: False},
+
+  # =============================================================================================
+
+  matehen_emg:                  {pin: 0,  type: Output, current_value: False, logic_type: False},
+  matehen_connect:              {pin: 1,  type: Output, current_value: False, logic_type: False},
+  matehen_error:                {pin: 7,  type: Output, current_value: False, logic_type: False},
+  matehen_aaaa:                 {pin: 5,  type: Output, current_value: False, logic_type: False},
+  matehen_bbbb:                 {pin: 4,  type: Output, current_value: False, logic_type: False},
+  matehen_qqqqq:                {pin: 3,  type: Output, current_value: False, logic_type: False},
+  matehen_vvvvv:                {pin: 2,  type: Output, current_value: False, logic_type: False},
+  matehen_dmmxxxx:              {pin: 6,  type: Output, current_value: False, logic_type: False},
+}

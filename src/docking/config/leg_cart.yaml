@@ -1,0 +1,17 @@
+Voxel_leaf_size:        0.001
+RANSAC_on_clusters:     True
+
+# EC_cluster_tolerance:   0.14
+EC_cluster_tolerance:   0.1 #tb3
+EC_min_size:            1
+EC_max_size:            5
+laser_frame:  'laser'
+
+#Bar marker detection
+Leg_length : 0.68
+Leg_length_tolerance : 0.1
+Leg_distance : 0.85
+Leg_distance_tolerance : 0.1
+Leg_offset : 0.18
+
+detect_type: 2

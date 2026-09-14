@@ -1,0 +1,17 @@
+{
+    "dist_check_go_in": 0.8,
+    "dist_check_go_out": 0.8,
+    "max_error_position_in_hub": 0.06,
+    "max_error_angle_in_hub": 6,
+    "max_error_position_out_hub": 0.06,
+    "max_error_angle_out_hub": 6,
+    "distance_turn_off_safety_when_docking": 0.8,
+    "safety_job_docking_forward": "FORWARD",
+    "safety_job_docking_backward": "BACKWARD",
+    "safety_job_undocking_forward": "FORWARD",
+    "safety_job_undocking_backward": "BACKWARD",
+    "footprint_dock": "amr_run_alone",
+    "foorprint_undock": "amr_run_alone",
+    "enable_check_error_when_docking": true,
+    "max_vel_docking": 0.3
+}

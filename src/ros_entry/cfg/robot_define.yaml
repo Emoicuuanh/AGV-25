@@ -1,0 +1,2 @@
+server_address: "http://192.168.XXX.XXX:1337/parse/"
+agv_name: "AGV XX"

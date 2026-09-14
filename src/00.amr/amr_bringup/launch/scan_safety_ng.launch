@@ -1,0 +1,8 @@
+<launch>
+  <arg name="log_level" default="2" />
+  <node name="scan_safety_node_ng" pkg="scan_safety" type="scan_safety_node_ng.py" output="screen"
+    args="$(arg log_level)">
+    <rosparam file="$(find amr_config)/cfg/safety_config.yaml" command="load" />
+  </node>
+  <node name="set_safety_by_name" pkg="scan_safety" type="set_safety.py" output="screen" />
+</launch>

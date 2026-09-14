@@ -1,0 +1,18 @@
+  # colorWipe(strip.Color(255, 0, 0), 50);  // Red
+  # colorWipe(strip.Color(0, 255, 0), 50);  // Green
+  # colorWipe(strip.Color(242, 90, 255), 50);  // pink
+  # colorWipe(strip.Color(255, 40, 0), 50);  // ORANGE
+  # colorWipe(strip.Color(255, 40, 0), 50);  // ORANGE
+  # colorWipe(strip.Color(253, 245, 0), 230);  // OLD_LACE
+  # colorWipe(strip.Color(255, 0, 20), 230);  // MAGENTA
+  # colorWipe(strip.Color(0, 255, 40), 230);  // JADE
+  # colorWipe(strip.Color(255, 222, 30), 50);  // GOLD
+  # colorWipe(strip.Color(0, 255, 255), 50);  // CYAN
+  # colorWipe(strip.Color(255, 100, 0), 50);  // AMBER
+  # colorWipe(strip.Color(50, 255, 255), 50);  // AQUA
+  # colorWipe(strip.Color(0, 0, 255), 50);  // Blue
+  # colorWipe(strip.Color(127, 127, 127), 5);  // Blue
+  # colorWipe(strip.Color(0, 0, 0, 255), 50);  // White RGBW
+  # colorWipe(strip.Color(127, 127, 127), 50);  // White
+  # colorWipe(strip.Color(127, 0, 0), 50);      // Red
+  # colorWipe(strip.Color(0, 0, 127), 50);  // Blue

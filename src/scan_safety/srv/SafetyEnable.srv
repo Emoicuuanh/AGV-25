@@ -1,0 +1,4 @@
+
+bool enable_safety   # Request to enable/disable safety
+---
+bool success               # Indicate if the request was successful or not

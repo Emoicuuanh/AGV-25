@@ -1,0 +1,8 @@
+scan_filter_chain:
+  - name: speckle
+    type: laser_filters/LaserScanSpeckleFilter
+    params:
+      filter_type: 0 # 0 = Distance, 1 = RadiusOutlier
+      filter_window: 2 # số điểm lân cận để xét
+      max_range_difference: 0.1 # ngưỡng khoảng cách giữa điểm và neighbor
+      max_range: 30.0 # khoảng cách tối đa để xem xét điểm

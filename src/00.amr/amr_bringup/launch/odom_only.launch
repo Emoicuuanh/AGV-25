@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find amr_bringup)/launch/laser_merge_all.launch" />
+     <include file="$(find amr_bringup)/launch/motor.launch" />
+     <include file="$(find amr_bringup)/launch/odometry_calculate.launch" />
+     <include file="$(find amr_bringup)/launch/laser_filter.launch" />
+</launch>

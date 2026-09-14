@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=HARDWARE
+Icon=/usr/share/pixmaps/htop.png
+Exec=terminator -e "zsh -c 'source $HOME/robot_config/ros_config.sh;source $ROS_WORKSPACE/src/ros_entry/scripts/env.sh;rosrun test_io_agv test_io_lower_part.py; $SHELL'"

@@ -1,0 +1,49 @@
+# port: "2-6"
+baud: 57600
+timeout: 0.1
+port_pid: 29987
+
+# Arduino MEGA2560 Analog pin mapping:
+#   A0: 54,
+#   A1: 55,
+#   A2: 56,
+#   A3: 57,
+#   A4: 58,
+#   A5: 59,
+#   A6: 60,
+#   A7: 61,
+#   A8: 62,
+#   A9: 63,
+#   A10: 64,
+#   A11: 65,
+#   A12: 66,
+#   A13: 67,
+#   A14: 68,
+#   A15: 69,
+
+sensors: {
+  blink_arduino_led:            {pin: 13, type: Digital, rate: 5, direction: output, logic_type: true, blink_rate: 5},
+  emg_button:                   {pin: 69, type: Digital, rate: 10, logic_type: true},                # A15
+  start_1_button:               {pin: 65, type: Digital, rate: 10, logic_type: true},                # A11
+  start_2_button:               {pin: 64, type: Digital, rate: 10, logic_type: true},                # A10
+  stop_1_button:                {pin: 63, type: Digital, rate: 10, logic_type: true},                # A9
+  stop_2_button:                {pin: 62, type: Digital, rate: 10, logic_type: true},                # A8
+  lift_max_sensor:              {pin: 67, type: Digital, rate: 5, logic_type: false},                # A12
+  lift_min_sensor:              {pin: 66, type: Digital, rate: 5, logic_type: false},                # A13
+  bumper:                       {pin: 47, type: Digital, rate: 5, logic_type: true},                 # A4
+  release_motor_sw:             {pin: 61, type: Digital, rate: 5, logic_type: false},                # A7
+  auto_manual_sw:               {pin: 60, type: Digital, rate: 5, logic_type: true},                 # A6
+  manual_charging_detect:       {pin: 49,  type: Digital, rate: 5, logic_type: true},                #
+  auto_charging_detect:         {pin: 48,  type: Digital, rate: 5, logic_type: true},                #
+  auto_charging_en_pin:         {pin: 31,  type: Digital, rate: 5, logic_type: false},               #
+  detect_vrack:                 {pin: 68,  type: Digital, rate: 5, logic_type: true},                # A14
+  # battery_vol:                  {pin: 54, type: AnalogFloat, rate: 0.5, value_to_vol_factor: 0.053763441}, # 1/MAX_ANALOG_DUTY * MAX_ANALOG_VOL * ANALOG_SCALE = (1/1023) * 5 *(1+10)/1
+  # charging_current:             {pin: 55, type: AnalogFloat, rate: 0.5, value_to_vol_factor: 0.053763441}, # 1/MAX_ANALOG_DUTY * MAX_ANALOG_VOL * ANALOG_SCALE
+}
+
+# Declare "pin" only for comment
+float_params: {
+  battery_percent:             {rate: 0.5, code: 1},
+  battery_vol:                 {pin: 54, rate: 0.2, code: 2},
+  charging_current:            {pin: 55, rate: 0.2, code: 3},
+}

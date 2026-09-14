@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Terminal=false # true: opens extra gnome-terminal
+Name=HMI
+Icon=/usr/share/pixmaps/HMI_AGV.png
+Exec=terminator -e "bash -c 'source $HOME/robot_config/ros_config.sh;cd  $ROS_WORKSPACE/src/hmi_for_agv_release/proj1_node; ./AppRun;$SHELL'"
+StartupWMClass=hmi_for_agv
+# https://askubuntu.com/questions/1090756/duplicate-icons-of-the-same-application-created-on-dock-with-no-wm-class-found

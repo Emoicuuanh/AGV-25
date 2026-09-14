@@ -1,0 +1,24 @@
+<launch>
+
+    <node name="vl53l5cx_serial" pkg="vl53l5cx" type="serial_esp_connect.py" output="screen">
+        <rosparam file="$(find vl53l5cx)/config/lidarvl53l5cx.yaml" command="load" />
+    </node>
+
+    <!-- <node pkg="tf" type="static_transform_publisher" name="lidar_1"
+        args="0.35 0.25 0.25 1.570796 0 1.570796 /base_link /base_laser_1 100" />
+    <node pkg="tf" type="static_transform_publisher" name="lidar_2"
+        args="0.35 -0.25 0.25 1.570796 0 1.570796 /base_link /base_laser_2 100" />
+    <node pkg="tf" type="static_transform_publisher" name="lidar_3"
+        args="-0.35 0.25 0.25 -1.570796 0 1.570796 /base_link /base_laser_3 100" />
+    <node pkg="tf" type="static_transform_publisher" name="lidar_4"
+        args="-0.35 -0.25 0.25 -1.570796 0 1.570796 /base_link /base_laser_4 100" /> -->
+    <node pkg="vl53l5cx" type="four_sensor_pcl.py" name="pointcloud_vl53l5cx" />
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find vl53l5cx)/launch/robot.rviz" /> -->
+    <!-- <node name="scan_safety" pkg="vl53l5cx" type="config_vl53l5cx.py" output="screen"
+        args="$(arg log_level)">
+        <rosparam file="$(find vl53l5cx)/config/safety_config_ng.yaml" command="load" />
+    </node> -->
+
+    <!-- <node name="pcl_to_lidar" pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan"
+        args="-d $(find pointcloud_to_laserscan)/launch/point2laser.rviz" /> -->
+</launch>

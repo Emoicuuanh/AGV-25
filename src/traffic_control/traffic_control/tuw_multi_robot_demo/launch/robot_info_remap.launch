@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="robot_info_publisher" type="robot_info_remap.py" name="robot_info_remap" output="screen">
+        <param name="config_file" value="$(find robot_info_publisher)/config/robot_config.yaml"/>
+    </node>
+</launch>

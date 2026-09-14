@@ -1,0 +1,2 @@
+ros_pkg: amr_bringup
+launch_file: arduino_bridge.launch

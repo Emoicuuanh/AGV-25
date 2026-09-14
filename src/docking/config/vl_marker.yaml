@@ -1,0 +1,55 @@
+# Detection Node Configuration
+
+dock_filepath: "/home/mkac/mav_ws/src/docking/pcd/mkhc_vl_marking.pcd"
+
+# Frame parameters
+world_frame: "map"
+robot_frame: "base_link"
+
+# NEW: Cloud configuration (replace old laser_frame)
+# Adjust these frame names to match your TF tree
+cloud1_frame: "laser_frame_1" # Frame for cloud1 (usually same as your old laser_frame)
+cloud1_topic: "cloud_1" # Topic name for cloud1
+
+cloud2_frame: "laser_frame_2" # Frame for cloud2 (if you have a second laser)
+cloud2_topic: "cloud_2" # Topic name for cloud2
+
+cloud_merger_frame: "laser" # Frame for merged cloud (usually same as laser)
+cloud_merger_topic: "cloud_map" # Topic name for merged cloud
+
+# RANSAC parameters
+RS_max_iter: 252
+RS_min_inliers: 3
+RS_dist_thresh: 0.02
+RANSAC_on_clusters: True
+
+# Voxel Grid parameters
+Voxel_leaf_size: 0.001
+
+# Euclidean Clustering parameters
+EC_cluster_tolerance: 0.08 #tb3
+EC_min_size: 20
+EC_max_size: 500
+
+# Bar marker detection (if used)
+BAR_length: 0.4
+BAR_length_tolerance: 0.1
+BAR_distance: 0.4
+BAR_distance_tolerance: 0.1
+
+# ICP parameters
+ICP_min_score: 0.0003
+ICP_max_corres_dist: 0.07991999999999999
+ICP_max_iter: 943
+ICP_max_transl_eps: 0.000000001
+ICP_max_rot_eps: 0.000000001
+ICP_max_eucl_fit_eps: 1.0
+
+# Detection parameters
+detect_type: 0
+
+# Dock distance and offset parameters
+max_dock_distance: 5.0
+dock_offset_x: 0
+dock_offset_y: 0
+dock_offset_yaw: -2.303

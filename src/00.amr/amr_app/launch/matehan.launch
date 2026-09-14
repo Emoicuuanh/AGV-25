@@ -1,0 +1,8 @@
+<launch>
+    <arg name="path_offset_x" default="$(env PATH_OFFSET_X)" />
+    <arg name="path_offset_y" default="$(env PATH_OFFSET_Y)" />
+    <node pkg="matehan" type="matehan_server.py" name="matehan_server" output="screen"
+        args="--config_path $(find amr_config)/cfg" />
+        <param name="path_offset_x" value="$(arg path_offset_x)" />
+        <param name="path_offset_y" value="$(arg path_offset_y)" />
+</launch>

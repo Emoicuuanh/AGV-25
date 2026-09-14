@@ -1,0 +1,6 @@
+<launch>
+    <arg name="simulation_str" default="" />
+    <node name="control_system" pkg="control_system" type="control_system.py" output="screen"
+        args="$(arg simulation_str) --robot_config_file $(find amr_config)/cfg/control_system/robot_config.yaml
+                                    --robot_define /home/mkac/robot_config/robot_define.yaml" />
+</launch>

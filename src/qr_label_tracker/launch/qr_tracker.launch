@@ -1,0 +1,4 @@
+<launch>
+    <rosparam file="$(find qr_label_tracker)/cfg/tracker_config.yaml" command="load" />
+    <node name="qr_tracker" pkg="qr_label_tracker" type="qr_tracking_node.py" output="log" />
+</launch>

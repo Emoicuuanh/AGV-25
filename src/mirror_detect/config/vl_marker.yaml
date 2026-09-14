@@ -1,0 +1,21 @@
+dock_filepath: '/home/coffee/catkin_ws/src/docking/pcd/simulation.pcd'
+RS_max_iter:            240
+RS_min_inliers:         3
+RS_dist_thresh:         0.04
+RANSAC_on_clusters:     True
+
+Voxel_leaf_size:        0.001
+
+# EC_cluster_tolerance:   0.14
+EC_cluster_tolerance:   0.2 #tb3
+EC_min_size:            8
+EC_max_size:            500
+laser_frame:  'base_laser_link'
+
+#Bar marker detection
+BAR_length: 0.4
+BAR_length_tolerance: 0.1
+BAR_distance: 0.4
+BAR_distance_tolerance: 0.1
+
+detect_type: 0

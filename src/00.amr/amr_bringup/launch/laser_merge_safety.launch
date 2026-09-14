@@ -1,0 +1,49 @@
+<!-- DESCRITPION -->
+
+<launch>
+	<!-- <include file="$(find amr_bringup)/launch/filter_laser.launch" /> -->
+	<node pkg="scan_merge_safety" name="vl53_laserscan_safety" type="laserscan_multi_merger"
+		output="screen">
+		<param name="destination_frame" value="base_link" />
+		<param name="cloud_destination_topic" value="/combine_cloud" />
+		<param name="scan_destination_topic" value="/scan" />
+		<param name="laserscan_topics"
+			value="/scan_2 /scan_1 /lidar1 /lidar2 /lidar3 /lidar4" /> <!-- LIST OF
+		THE
+		LASER SCAN TOPICS TO SUBSCRIBE : /scan1 /scan2 -->
+		<param name="min_laser_to_merge" value="1" />   <!-- Minimum number of laser topics received to
+		publish laser merge -->
+
+		<param name="angle_min" value="-3.14" />
+		<param name="angle_max" value="3.14" />
+		<param name="angle_increment" value="0,008727" />
+		<param name="scan_time" value="0.04" />
+		<param name="range_min" value="0.00" />
+		<param name="range_max" value="6.0" />
+
+		<!-- safety status  -->
+		<param name="check_safety_job" value="true" />
+		<param name="div_factor_pub" value="1" />
+		<param name="safety_range_max" value="3.0" />
+		<param name="safety_job_topic" value="/safety_job_data" />
+		<param name="safety_status_topic" value="/safety_status" />
+		<!-- Min number of ray laser to confirm have object in safety zone -->
+		<param name="min_point_safety" value="2" />
+		<param name="min_dist_two_point" value="0.2" />
+	</node>
+	<node pkg="ira_laser_tools" name="laserscan_multi_merger"
+		type="laserscan_multi_merger_intensity" output="screen">
+		<param name="destination_frame" value="laser" />
+		<param name="cloud_destination_topic" value="/merged_cloud" />
+		<param name="scan_destination_topic" value="/scan_map" />
+		<param name="laserscan_topics" value="/scan_1 /scan_2" />
+		<!-- <param name="laserscan_topics" value ="/scan_vl53l5cx" /> -->
+		<param name="angle_min" value="-3.14" />
+		<param name="angle_max" value="3.14" />
+		<param name="angle_increment" value="0.004363" />
+		<param name="scan_time" value="0.0333333" />
+		<param name="range_min" value="0.30" />
+		<param name="range_max" value="40.0" />
+	</node>
+
+</launch>

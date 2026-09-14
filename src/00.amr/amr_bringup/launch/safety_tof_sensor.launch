@@ -1,0 +1,7 @@
+<launch>
+    <include file="$(find amr_bringup)/launch/scan_safety_ng.launch" />
+    <!-- <include file="$(find amr_bringup)/launch/esp_hard_serial.launch" /> -->
+    <include file="$(find amr_bringup)/launch/safety_tof_to_pcl.launch" />
+    <include file="$(find amr_bringup)/launch/vl53_point2laser.launch" />
+    <include file="$(find amr_bringup)/launch/laser_merge_safety.launch" />
+</launch>

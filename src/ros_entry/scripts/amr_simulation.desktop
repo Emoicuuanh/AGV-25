@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=AMR Simulation
+Icon=/usr/share/pixmaps/amr.png
+Exec=terminator -e "bash -c 'source $HOME/robot_config/ros_config.sh; $ROS_WORKSPACE/src/ros_entry/scripts/amr_startup.sh 0 1;$SHELL'"
+# Exec=terminator -e """ bash -c 'cd /opt/ros; cd $(ls |grep -e noetic -e melodic); echo "$PWD"; source setup.bash; source $HOME/ros_config.sh; source $ROS_WORKSPACE/devel/setup.bash; $(rospack find agvlidar_common)/scripts/amr_sim_log.sh 0; $SHELL' """
+# Exec=terminator -e """ bash -c 'cd /opt/ros; cd $(ls |grep -e noetic -e melodic); echo "$PWD"; source setup.bash; source $HOME/ros_config.sh; echo $ROS_WORKSPACE;source $ROS_WORKSPACE/devel/setup.bash; rosrun agvlidar_common amr_sim_log.sh 0; $SHELL' """

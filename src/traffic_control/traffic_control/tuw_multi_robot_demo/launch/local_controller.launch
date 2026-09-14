@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="robot_name" default="robot_1"/>
+  <arg name="update_rate_info" value="10.0" />
+  <!-- Define robot_radius for each robot as a vector of [a, b] -->
+  <arg name="robot_radius" default="[0.6, 0.3]"/>
+  <!-- Use a substitution to set layout based on robot_name -->
+  <arg name="layout" default="0"/>
+
+  <node pkg="tuw_multi_robot_ctrl" type="tuw_velocity_controller" name="moving_traffic_control" output="screen"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 map robot_0/odom" />
+
+    <node pkg="tuw_multi_robot_local_behavior_controller" type="tuw_local_behavior_controller_node" name="local_behavior" output="screen">
+      <!-- <param name="robot_name" value="$(arg robot_name)" />
+      <param name="robot_radius" value="$(arg robot_radius)" />
+      <param name="layout" value="$(arg layout)" /> -->
+      <remap from="robot_info" to="/robot_info" />
+    </node>
+
+</launch>

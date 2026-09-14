@@ -1,0 +1,40 @@
+xy_goal_tolerance: 0.5
+yaw_goal_tolerance: 30
+dist_check_crossline_near_goal: 0.8
+dist_to_stop: 0.35 # Khoảng cách agv sẽ dừng khi đi qua cross line
+dist_followline_sensor_to_center_robot: 0.3
+max_distance_check_crossline: 0.3
+safety_job_forward_default: "FORWARD"
+safety_job_backward_default: "BACKWARD"
+footprint_default: "amr_run_alone"
+vel_param_nomarl:
+  runtype_nomarl:
+    v_max: 0.6
+    v_min: 0.02
+  runtype_docking:
+    v_max: 0.25
+    v_min: 0.02
+  runtype_undocking:
+    v_max: 0.25
+    v_min: 0.02
+vel_param_special:
+  vel_when_get_dec_tape: 0.3
+  when_turn:
+    v_max: 0.2
+    v_min: 0.02
+  when_rotation:
+    v_theta_max: 0.8
+    v_theta_min: 0.1
+  stop_by_crossline_accuracy:
+    v_max: 0.06
+    v_min: 0.02
+  stop_by_crossline_normal:
+    v_max: 0.06
+    v_min: 0.02
+  when_safety:
+    fields_1:
+      v_max: 0.15
+      v_min: 0.02
+    fields_2:
+      v_max: 0.3
+      v_min: 0.02

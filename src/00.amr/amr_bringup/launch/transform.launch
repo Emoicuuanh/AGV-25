@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="publish_transform" name="publish_transform" type="publish_transform.py"
+        args="--config_file $(find amr_config)/cfg/transform.yaml">
+    </node>
+</launch>

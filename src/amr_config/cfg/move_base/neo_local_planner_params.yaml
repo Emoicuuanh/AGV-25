@@ -1,0 +1,140 @@
+NeoLocalPlanner:
+  # The x acceleration limit of the robot in meters/sec^2
+  acc_lim_x: 0.45
+
+  emergency_acc_lim_x: 2 #EMG stop decelerate > normal stop accelarate
+  emergency_acc_lim_theta: 2
+  stop_acc: 0.45 #scale up to 2 times 0.6 m/s^2
+
+  # The rotational acceleration limit of the robot in radians/sec^2
+  acc_lim_theta: 0.8
+
+  # The maximum x velocity for the robot in m/s.
+  max_vel_x: 0.8
+  # The minimum x velocity for the robot in m/s, negative for backwards motion.
+  min_vel_x: 0
+
+  # The absolute value of the maximum rotational velocity for the robot in rad/s
+  max_rot_vel: 0.8
+
+  # The absolute value of the minimum rotational velocity for the robot in rad/s
+  min_rot_vel: 0.1
+
+  # The absolute value of the maximum translational velocity for the robot in m/s
+  max_trans_vel: 0.8
+
+  # The absolute value of the minimum translational velocity for the robot in m/s
+  min_trans_vel: 0.1
+
+  # The tolerance in radians for the controller in yaw/rotation when achieving its goal
+  yaw_goal_tolerance: 0.05
+
+  # The tolerance in meters for the controller in the x & y distance when achieving a goal
+  xy_goal_tolerance: 0.025 # calib thử 0.03 --> 0.05 xem cái nào ok
+
+  # How long to fine tune for goal position after reaching tolerance limits [s]
+  goal_tune_time: 0.5
+
+  # How far to predict control pose into the future based on latest odometry [s]
+  lookahead_time: 0.4
+
+  # How far to look ahead when computing path orientation [m]
+  lookahead_dist: 0.5
+
+  # Threshold yaw error below which we consider to start moving [rad]
+  start_yaw_error_normal: 0.025
+
+  start_yaw_error_when_safety: 0.04
+
+  # Gain when adjusting final x position for goal [1/s]
+  pos_x_gain: 1
+
+  # Gain for lane keeping based on y error (differential only) [rad/s^2]
+  pos_y_yaw_gain: 1.3
+
+  # Gain for lane keeping based on yaw error (differential only) [1/s]
+  yaw_gain: 2.5
+
+  # Gain for adjusting yaw when not translating, or in case of holonomic drive  [1/s]
+  static_yaw_gain: 3
+
+  # Gain for y cost avoidance (differential only)
+  cost_y_yaw_gain: 0.2
+
+  # How far ahead to compute y cost gradient (constant offset) [m]
+  cost_y_lookahead_dist: 0.3
+
+  # How far ahead to compute y cost gradient (dynamic offset) [s]
+  cost_y_lookahead_time: 1.5
+
+  # Gain for yaw cost avoidance
+  cost_yaw_gain: 1
+
+  # Gain for final control low pass filter
+  low_pass_gain: 0.2
+
+  # Max cost to allow, above we slow down to min_trans_vel or even stop
+  max_cost: 0.95
+
+  # Max velocity based on curvature [rad/s]
+  max_curve_vel: 0.3
+
+  # Max distance to goal when looking for it [m]
+  max_goal_dist: 0.3
+
+  # Max distance allowable for backing up (zero = unlimited) [m]
+  max_backup_dist: 0.1
+
+  # Minimal distance for stopping [m]
+  min_stop_dist: 0.1
+
+  # If robot has differential drive, holonomic otherwise
+  differential_drive: true
+
+  min_dist_obstacle_allow_rotation: 0.5
+
+  print_state: true
+
+  allow_reversing: true
+
+  # Safety config
+  vel_max_safety_field_0: 0
+
+  vel_max_safety_field_1: 0.15
+
+  vel_max_safety_field_2: 0.3
+
+  vel_max_safety_field_3: 0.5
+
+  max_time_check_stop_by_safety: 2
+
+  # Calib
+
+  tolerance_stop_by_qr_code: 0.5
+  distance_check_qr_for_stop: 0.15
+  stop_by_qr_code: true # dừng bằng vị trí qr code
+
+  dist_stop_agv_to_qr_code: 0.005 # cách tâm qr code bao nhiêu sẽ gửi vel = 0 , calib từ 0.02 --> 0 xem cái nào dừng đúng tâm nhất
+
+  min_vel_stop_by_qr_code: 0.03 # calib 0 -- > 0.03 (m/s)...   để calib vận tốc khi đọc đc qr code lúc cuối    # calib vel để vận tốc o đổi khi đọc dc qr code lúc cuối theo nguyên lý của followine, vận tốc o đổi thì quán tính dừng sẽ giống nhau
+
+  min_vel_move_straight: 0.05
+  min_vel_move_rotation: 0
+  max_r: 1
+
+  rotation_p_gain: 5.0
+  rotation_i_gain: 3.0
+  rotation_i_max: 5.0
+  rotation_i_min: -5.0
+  rotation_d_gain: 4.0
+  rotation_decel_factor: 2.0
+  rotation_scaling: 0.5
+
+  translation_time_factor: 1.5 #stop_time scale factor
+  translation_quick_stop_factor: 2.0 #increase stop_acc
+  translation_exp_factor: 2.0 #decelerate curve factor
+  translation_min_factor: 0.15 #smallest decelarate factor
+  translation_decel_boost: 1.0 #decelarate more when reach critial_distance
+  translation_critical_distance: 1.0 #distance to goal to apply aggressive decelaration
+
+  lookahead_time_stop: 0.2

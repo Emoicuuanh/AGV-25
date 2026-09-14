@@ -1,0 +1,9 @@
+<launch>
+    <arg name="hard_port_esp_forward" default="$(env ESP_PORT_FW)" />
+    <arg name="hard_port_esp_backward" default="$(env ESP_PORT_BW)" />
+
+    <node name="reset_esp" pkg="reset_esp" type="esp_manager.py" output="screen">
+        <param name="port_esp_forward" value="$(arg hard_port_esp_forward)" />
+        <param name="port_esp_backward" value="$(arg hard_port_esp_backward)" />
+    </node>
+</launch>

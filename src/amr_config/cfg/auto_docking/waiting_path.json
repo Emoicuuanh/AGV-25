@@ -1,0 +1,62 @@
+{
+  "name": "Path goto waiting point for docking",
+  "next_action_type": "This is the last action",
+  "params": {
+    "run_as_via_point": false,
+    "via_point_xy_tol": 0.5,
+    "via_point_yaw_tol": 0.5,
+    "frame_id": "map",
+    "retry_time": 1,
+    "timeout": 0.0,
+    "max_retry_time": 2,
+    "retry_distance": 0.3,
+    "straight_and_rotate": true,
+    "local_planner": "move_to_point",
+    "moving_direction": true,
+    "overwrite_planner_setting": true,
+    "reconfigure": {
+      "global_planner": "global_planner",
+      "forward_vel": 0.3,
+      "backward_vel": 0.05,
+      "angular_vel": 1.0,
+      "linear_acc": 0.5,
+      "angular_acc": 0.5,
+      "x_only_tolerance": false,
+      "ignore_rotate_last":false,
+      "rotate_only": false,
+      "use_pid_control": true,
+      "distance_ignore_angular": 0.0,
+      "xy_tolerance": 0.1,
+      "yaw_tolerance": 0.05
+    }
+  },
+  "waypoints": [
+    {
+      "name": "Pose_1",
+      "position": {
+        "position": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "orientation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        }
+      },
+      "params": {
+        "retry_time": 1,
+        "local_planner": "move_to_point",
+        "reconfigure": {
+          "x_only_tolerance": false,
+          "ignore_rotate_last":false,
+          "rotate_only": false,
+          "use_pid_control": true
+        }
+      }
+    }
+  ]
+
+}

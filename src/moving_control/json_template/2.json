@@ -1,0 +1,104 @@
+{
+  "waypoints": [
+    {
+      "createdAt": "2022-12-08T09:52:26.891Z",
+      "data": {
+        "display": {
+          "radius": 5.472324937467159,
+          "x": 41.04243703100369,
+          "y": 27.361624687335794
+        },
+        "next": ["start_1"],
+        "radius": 0.1
+      },
+      "map": "MKAC_mapstart_1",
+      "name": "end_1",
+      "objectId": "etC80Cjlss",
+      "position": {
+        "orientation": {
+          "w": 1,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "position": {
+          "x": 1.63,
+          "y": 6.5,
+          "z": 0
+        }
+      },
+      "type": "position",
+      "updatedAt": "2022-12-08T09:52:26.891Z"
+    },
+    {
+      "createdAt": "2022-12-08T09:52:26.796Z",
+      "data": {
+        "display": {
+          "radius": 2.7361624687335797,
+          "x": 41.04243703100369,
+          "y": 54.72324937467159
+        },
+        "next": ["3.5:2"],
+        "radius": 0.1
+      },
+      "map": "MKAC_map",
+      "name": "start_1",
+      "objectId": "HcykmGrprD",
+      "position": {
+        "orientation": {
+          "w": 1,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "position": {
+          "x": 1.63,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "type": "position",
+      "updatedAt": "2022-12-08T09:52:26.796Z"
+    },
+    {
+      "createdAt": "2022-12-08T09:52:26.796Z",
+      "data": {
+        "display": {
+          "radius": 2.7361624687335797,
+          "x": 41.04243703100369,
+          "y": 54.72324937467159
+        },
+        "next": ["3.5:2"],
+        "radius": 0.1
+      },
+      "map": "MKAC_map",
+      "name": "start_1",
+      "objectId": "HcykmGrprD",
+      "position": {
+        "orientation": {
+          "w": 1,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "type": "position",
+      "updatedAt": "2022-12-08T09:52:26.796Z"
+    }
+  ],
+  "params": {
+    "avoid_obstacle": true,
+    "distance_threshold": 0.1,
+    "position": "start_1",
+    "retries": 1,
+    "straight_and_rotate": true
+  },
+  "name": "Move to position",
+  "type": "move",
+  "next_action_type": "move"
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="record_lift" pkg="lift" type="record_lift.py" output="screen"/>
+</launch>

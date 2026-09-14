@@ -1,0 +1,7 @@
+<launch>
+  <arg name="map_file" default="/home/mkac/tmp/ros/maps/ems_4"/>
+
+  <node pkg="cartographer_run" type="save_map.py" name="save_map_node" output="screen">
+    <param name="map_file" value="$(arg map_file)"/>
+  </node>
+</launch>

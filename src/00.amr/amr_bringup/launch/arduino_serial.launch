@@ -1,0 +1,10 @@
+<launch>
+   <arg name="hard_port" default="$(env ARDUINO_PORT)" />
+   <!-- <arg name="hard_port" default="/dev/ttyACM0" /> -->
+
+   <node name="arduino_serial" pkg="rosserial_custom" type="rosserial_connect.py"
+      output="screen">
+      <rosparam file="$(find amr_config)/cfg/arduino_serial.yaml" command="load" />
+      <param name="port" value="$(arg hard_port)" />
+   </node>
+</launch>

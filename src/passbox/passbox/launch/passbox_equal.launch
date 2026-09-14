@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="wareshare_ip" default="192.86.10.200"/>
+    <arg name="wareshare_port" default="502"/>
+
+    <node pkg="passbox" type="passbox_equal.py" name="passbox_equal_server" output="screen">
+        <param name="wareshare_ip" value="$(arg wareshare_ip)" />
+        <param name="wareshare_port" value="$(arg wareshare_port)" />
+    </node>
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter" output="screen">
+        <rosparam command="load" file="$(find amr_config)/cfg/laser_filter.yaml" />
+
+        <!-- Remap input: gốc LIDAR -->
+        <remap from="scan" to="/scan_map" />
+
+        <!-- Remap output: scan đã lọc -->
+        <remap from="scan_filtered" to="/scan_map_filter" />
+    </node>
+</launch>

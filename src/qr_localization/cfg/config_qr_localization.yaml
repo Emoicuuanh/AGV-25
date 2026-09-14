@@ -1,0 +1,5 @@
+global_frame_id: 'map'
+odom_frame_id: 'odom'
+base_frame_id: 'base_footprint'
+qr_frame: 'qr_code'
+qr_cam_frame: 'qr_cam'

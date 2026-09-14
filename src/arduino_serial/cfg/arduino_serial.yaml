@@ -1,0 +1,28 @@
+port: 2-3
+port_pid: 29987
+
+# Arduino MEGA2560 Analog pin mapping:
+#   A0: 54,
+#   A1: 55,
+#   A2: 56,
+#   A3: 57,
+#   A4: 58,
+#   A5: 59,
+#   A6: 60,
+#   A7: 61,
+#   A8: 62,
+#   A9: 63,
+#   A10: 64,
+#   A11: 65,
+#   A12: 66,
+#   A13: 67,
+#   A14: 68,
+#   A15: 69,
+
+EMG_PIN: 59
+# EMG_2_PIN: 23
+START_1_PIN: 65
+START_2_PIN: 64
+STOP_1_PIN: 63
+STOP_2_PIN: 62
+RELEASE_MOTOR: 61

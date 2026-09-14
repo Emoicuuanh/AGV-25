@@ -1,0 +1,25 @@
+num_of_led_follow: 4
+left_wheel_factor_backward: 1.0
+left_wheel_factor_forward: 1.0
+right_wheel_factor_backward: 1.0
+right_wheel_factor_forward: 1.0
+wheel_separation: 0.5 # meters
+turn_distance: 2.0 # meters
+distance_rotate: 0.25 # meters
+table_error: "0,1,2,3,6.4,10,14.4,19.6,25.6,32.4,40,48.4,57.6,67.6,78.4,90"
+kp: 3.0
+ki: 0.0
+kd: 1.0
+max_linear_vel: 1 # m/s
+max_speed: 1 # m/s
+min_speed: 0.05 # m/s
+corner_speed: 0.2 # m/s
+rotate_follow_find_tape_speed: 0.15 # m/s
+rotate_follow_find_center_speed: 0.1 # m/s
+rotate_speed: 0.05 # m/s for each wheel (not angular vel)
+rotate_low_speed: 0.15 # m/s for each wheel (not angular vel)
+accuracy_stop_speed: 0.08 # m/s
+normal_speed_acc: 1 # m/s2
+normal_speed_dec: 1 # m/s2
+near_out_line_dec: 0.9 # m/s2
+out_line_dec: 12.0 # m/s2

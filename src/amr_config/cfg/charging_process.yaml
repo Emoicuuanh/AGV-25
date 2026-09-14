@@ -1,0 +1,4 @@
+charging_full_time: 0.5 # Minutes _ time charging continues when battery full
+percent_to_charge_again: 99 # After charge full, Only recharge when percent lower than this value
+max_percent_to_charge: 100 #Limit battery max percentage to charge to 
+# min_ampe_is_charge: 0.5

@@ -1,0 +1,18 @@
+<launch>
+
+  <node name="vl53l5cx_serial" pkg="vl53l5cx" type="serial_esp_connect.py" output="screen">
+    <rosparam file="$(find amr_config)/cfg/lidarvl53l5cx.yaml" command="load" />
+  </node>
+
+  <node pkg="vl53l5cx" name="vl53_array_pcl" type="vl53l5cx_ros_node" output="screen">
+    <param name="arr_in_topic1" value="/vl53l5cx_r1" />
+    <param name="arr_in_topic2" value="/vl53l5cx_r2" />
+    <param name="arr_in_topic3" value="/vl53l5cx_r3" />
+    <param name="arr_in_topic4" value="/vl53l5cx_r4" />
+    <param name="pcl_out_topic1" value="/pointcloud_lidar1" />
+    <param name="pcl_out_topic2" value="/pointcloud_lidar2" />
+    <param name="pcl_out_topic3" value="/pointcloud_lidar3" />
+    <param name="pcl_out_topic4" value="/pointcloud_lidar4" />
+  </node>
+
+</launch>

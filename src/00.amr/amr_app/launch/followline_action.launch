@@ -1,0 +1,4 @@
+<launch>
+    <node name="followline_action" pkg="follow_line" type="followline_action.py" output="screen"
+        args="--followline_action_config $(find amr_config)/cfg/followline_action.yaml" />
+</launch>

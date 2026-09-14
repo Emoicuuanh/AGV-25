@@ -1,0 +1,194 @@
+<launch>
+	<arg name="subfix" default=".py" />
+	<arg name="use_hardware" default="true" />
+	<arg name="use_smoother_vel" default="true" />
+	<arg name="use_smoother_joystick" default="true" />
+	<arg name="use_motor" default="true" />
+	<arg name="use_lidar" default="true" />
+	<arg name="use_serial" default="true" />
+	<arg name="use_joystick" default="true" />
+	<arg name="use_tof" default="false" />
+	<arg name="use_qr" default="true" />
+	<arg name="simulation" default="false" />
+	<arg if="$(arg simulation)" name="simulation_str" default="-s" />
+	<arg unless="$(arg simulation)" name="simulation_str" default="" />
+	<arg name="map_file" default="mkac" />
+	<arg name="use_rviz" default="false" />
+	<arg name="use_control_system" default="true" />
+	<arg name="use_mission_manager" default="true" />
+	<arg name="use_slam_manager" default="true" />
+	<arg name="use_docking" default="true" />
+	<arg name="use_safety" default="true" />
+	<arg name="use_log_data" default="true" />
+	<param name="mongodb_address" value="mongodb://coffee:coffee@localhost:27017" />
+	<arg name="use_irable" default="$(optenv USE_IRABLE false)" />
+
+	<!-- Esp Safety -->
+	<group if="$(arg use_safety)">
+		<include file="$(find amr_bringup)/launch/safety_tof_sensor.launch" />
+		<!-- <node name="vl53l5cx" pkg="vl53l5cx" type="fake_data.py" /> -->
+	</group>
+
+	<!-- Odom -->
+	<include file="$(find amr_bringup)/launch/odometry_calculate.launch" />
+
+	<!-- Motor -->
+	<group if="$(arg use_motor)">
+		<include file="$(find amr_bringup)/launch/motor.launch" />
+	</group>
+
+	<!-- Lidar -->
+	<group if="$(arg use_lidar)">
+		<include file="$(find amr_bringup)/launch/lidar_signal_new.launch" />
+		<include file="$(find amr_bringup)/launch/laser_filter.launch" />
+
+
+	</group>
+
+	<!-- Log -->
+	<group if="$(arg use_log_data)">
+		<include file="$(find odometry_calculate)/launch/log_odom.launch" />
+	</group>
+
+	<!-- Arduino -->
+	<group if="$(arg use_serial)">
+		<include file="$(find amr_bringup)/launch/arduino_bridge.launch" />
+	</group>
+
+	<!-- Clear log  -->
+	<node name="clear_log" pkg="clear_log" type="clear_log.py" args="-k 10" />
+
+	<node name="robot_pose_publisher" pkg="robot_pose_publisher" type="robot_pose_publisher">
+		<param name="laser_safety_frame" value="laser" />
+		<param name="laser_map_frame" value="laser" />
+		<param name="base_frame" value="base_link" />
+		<param name="publish_frequency" value="40" />
+		<!-- Topic cần đổi thành /scan_map -->
+	</node>
+
+	<!-- rviz -->
+	<group if="$(arg use_rviz)">
+		<include file="$(find agvlidar_navigation)/launch/rviz.launch" />
+	</group>
+
+	<!-- docking and charging -->
+	<group if="$(arg use_docking)">
+		<include file="$(find amr_app)/launch/docking.launch" />
+		<include file="$(find amr_app)/launch/undocking.launch" />
+		<include file="$(find amr_app)/launch/charging_process.launch" />
+	</group>
+
+	<!-- control system -->
+	<include file="$(find amr_app)/launch/control_system.launch" />
+
+	<!-- moving control -->
+	<include file="$(find amr_app)/launch/moving_control.launch" />
+
+	<!-- trigger mission -->
+	<node pkg="control_system" type="trigger_mission_server.py" name="trigger_mission_server"
+		output="screen" />
+	<node pkg="control_system" type="trigger_mission_by_name.py" name="trigger_mission_by_name"
+		output="screen" />
+
+	<!-- Matehan-Hub-Elevator -->
+	<group if="$(arg use_docking)">
+		<include file="$(find amr_app)/launch/matehan.launch" />
+		<include file="$(find amr_app)/launch/hub.launch" />
+		<include file="$(find amr_app)/launch/elevator.launch" />
+	</group>
+
+
+	<!-- mission manager -->
+	<group if="$(arg use_mission_manager)">
+		<node name="mission_manager" pkg="mission_manager" type="mission_manager_server.py"
+			output="screen"
+			args="--mission_list $(find amr_config)/cfg/mission_manager/mission_list.yaml" />
+	</group>
+
+	<!-- slam manager  -->
+	<group if="$(arg use_slam_manager)">
+		<include file="$(find qr_localization)/launch/qr_localization.launch" />
+		<include file="$(find amr_bringup)/launch/static_tf.launch" />
+		<include file="$(find slam_manager)/launch/map_to_img.launch" />
+		<node name="slam_manager" pkg="slam_manager" type="slam_manager.py" output="screen"
+			args="$(arg simulation) --config_file $(find amr_config)/cfg/slam_manager/slam_config.yaml" />
+	</group>
+	<group unless="$(arg use_slam_manager)">
+		<!-- <include file="$(find amr_app)/launch/amcl.launch"/> -->
+		<node pkg="tf" type="static_transform_publisher" name="fake_localizer"
+			args="0 0 0 0 0 0 1 /map /odom 100" />
+		<node pkg="map_server" name="map_server" type="map_server"
+			args="/home/mkac/tmp/ros/maps/blank_map.yaml" />
+	</group>
+
+	<!-- QR code -->
+	<group if="$(arg use_qr)">
+        <!-- Reset ESP -->
+        <include file="$(find cognex_qr_code)/launch/cognex_driver.launch" />
+        
+        <!-- Conditional QR driver based on USE_IRABLE -->
+        <group if="$(arg use_irable)">
+            <include file="$(find qr_irayble)/launch/qr_irayble_driver.launch" />
+        </group>
+        
+        <group unless="$(arg use_irable)">
+            <include file="$(find qr_gls621)/launch/sick_gls621_driver.launch" />
+        </group>
+        
+        <include file="$(find qr_label_tracker)/launch/qr_tracker.launch" />
+    </group>
+
+
+	<!-- Move base -->
+	<include file="$(find amr_app)/launch/move_base.launch" />
+
+	<!-- Sound -->
+	<include file="$(find amr_app)/launch/sound_control.launch">
+	</include>
+
+	<!-- Led -->
+	<include file="$(find amr_app)/launch/led_control.launch">
+	</include>
+
+	<!-- Hardware -->
+	<include file="$(find amr_bringup)/launch/amr_bringup.launch">
+		<arg name="use_joystick" value="$(arg use_joystick)" />
+		<arg name="simulation" value="$(arg simulation)" />
+		<arg name="use_smoother_vel" value="$(arg use_smoother_vel)" />
+		<arg name="use_motor" value="$(arg use_motor)" />
+		<arg name="use_smoother_joystick" value="$(arg use_smoother_joystick)" />
+	</include>
+	<group if="$(arg use_tof)">
+		<!-- Reset ESP -->
+		<include file="$(find amr_bringup)/launch/reset_esp.launch" />
+	</group>
+
+	<!-- HMI -->
+	<!-- <include file="$(find amr_bringup)/launch/hmi_manager.launch" /> -->
+
+	<!-- BMS -->
+	<!-- <include file="$(find read_battery)/launch/read_battery.launch" /> -->
+
+
+	<!-- Reset Arduino -->
+	<!-- <node name="reset_arduino" pkg="reset_esp" type="arduino_manager.py" output="log" /> -->
+	<include file="$(find amr_bringup)/launch/reset_arduino.launch" />
+
+
+	<!-- lOG PIN-->
+	<node name="pog_pin" pkg="read_battery" type="log_battery_agv_300.py" />
+
+	<include file="$(find lift)/launch/record_lift.launch" />
+
+
+	<!-- trafic control new-->
+	<include file="$(find tuw_multi_robot_demo)/launch/real_client_agv.launch">
+	</include>
+
+	<include file="$(find mirror_detect)/launch/detection_cluster.launch">
+	</include>
+	<!-- Charger dock detect-->
+	<include file="$(find docking)/launch/mkac_get_dock.launch">
+	</include>
+
+</launch>

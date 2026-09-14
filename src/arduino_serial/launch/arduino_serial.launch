@@ -1,0 +1,7 @@
+<launch>
+   <node name="arduino_serial" pkg="arduino_serial" type="arduino_serial_connect.py" output="screen">
+      <rosparam file="$(find arduino_serial)/cfg/arduino_serial.yaml" command="load"/>
+   </node>
+   <node name="arduino_ros_fake" pkg="arduino_serial" type="arduino_ros_fake.py" output="screen"/>
+
+</launch>

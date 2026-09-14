@@ -1,0 +1,8 @@
+string robot_name  # Node A gửi tên robot
+
+---
+
+string detail_status_run_pause_by_route
+string detail_status_run_pause_by_detect_collision
+bool is_pause_by_route
+bool is_pause_by_detect_collision

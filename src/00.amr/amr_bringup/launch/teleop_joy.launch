@@ -1,0 +1,28 @@
+<launch>
+    <arg name="joy_config" default="f710" />
+    <arg name="joy_dev" default="/dev/input/js0" />
+    <arg name="config_filepath" default="$(find amr_config)/cfg/$(arg joy_config).config.yaml" />
+    <arg name="joy_topic_origin" default="joy_origin" />
+    <arg name="joy_topic" default="joy" />
+    <arg name="cmd_vel_topic" default="cmd_vel" />
+
+    <node pkg="joy" type="joy_node" name="joy_node">
+        <param name="dev" value="$(arg joy_dev)" />
+        <param name="deadzone" value="0.3" />
+        <param name="autorepeat_rate" value="20" />
+        <remap from="joy" to="$(arg joy_topic_origin)" />
+    </node>
+
+    <node pkg="teleop_twist_joy" name="teleop_twist_joy" type="teleop_node">
+        <rosparam command="load" file="$(arg config_filepath)" />
+        <remap from="joy" to="$(arg joy_topic)" />
+        <remap from="cmd_vel" to="$(arg cmd_vel_topic)" />
+    </node>
+
+    <node pkg="joystick_control" type="joystick_manager.py" name="joystick_manager">
+        <remap from="joy_origin" to="$(arg joy_topic_origin)" />
+        <remap from="joy_remap" to="$(arg joy_topic)" />
+    </node>
+
+    <node name="joy_handle" pkg="joystick_control" type="joystick_handle.py" />
+</launch>

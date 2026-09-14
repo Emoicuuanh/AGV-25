@@ -1,0 +1,20 @@
+# logic_type = 0 ( out 0v)
+# logic_type = hight ( out 24v)
+
+fasteck_ezi_io: {
+  arduino_led:                  {pin: 0,  type: Output, current_value: 1, logic_type: 1},
+  emg_button:                   {pin: 1,  type: Output, current_value: 2, logic_type: 0},
+  start_1_button:               {pin: 2,  type: Output, current_value: 3, logic_type: 0},
+  start_2_button:               {pin: 3,  type: Output, current_value: 4, logic_type: 0},
+  stop_1_button:                {pin: 4,  type: Output, current_value: 5, logic_type: 0},
+  stop_2_button:                {pin: 5,  type: Output, current_value: 6, logic_type: 0},
+  lift_min_level:               {pin: 6,  type: Output, current_value: 7, logic_type: 0},
+  lift_max_level:               {pin: 7,  type: Output, current_value: 8, logic_type: 0},
+  lift_work_level:              {pin: 8,  type: Output, current_value: 0, logic_type: 0},
+  release_motor_sw:             {pin: 9,  type: Output, current_value: 0, logic_type: 0},
+  auto_manual_sw:               {pin: 10, type: Output, current_value: 0, logic_type: 0},
+  digital_x:                    {pin: 11, type: Output, current_value: 0, logic_type: 0},
+  digital_y:                    {pin: 12, type: Output, current_value: 0, logic_type: 1},
+  digital_s:                    {pin: 14, type: Output, current_value: 0, logic_type: 0},
+  digital_z:                    {pin: 15, type: Output, current_value: 9, logic_type: 1},
+}

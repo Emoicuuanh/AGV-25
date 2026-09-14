@@ -1,0 +1,17 @@
+# shutdown_costmaps: true # Xác định xem có tắt các bản đồ chi phí của nút khi move_base ở trạng thái không hoạt động hay không
+
+controller_frequency: 10.0 # run controller at 5.0 Hz
+controller_patience: 10.0 # if the controller failed, clear obstacles and retry; after 5.0 s, abort and replan
+
+planner_frequency:
+  0.0 # Tỷ lệ tính bằng Hz để chạy vòng lập kế hoạch toàn cầu. Nếu tần suất được đặt thành 0,0,
+  # trình lập kế hoạch toàn cầu sẽ chỉ chạy khi nhận được mục tiêu mới hoặc trình lập kế hoạch cục bộ báo cáo rằng đường dẫn của nó bị chặn.
+planner_patience: 5.0 # if the first planning attempt failed, abort planning retries after 3.0 s...
+planner_max_retries: -1 # Giá trị -1.0 tương ứng với số lần thử lại vô hạn.
+controller_max_retries: -1
+oscillation_timeout: 15.0 # abort controller and trigger recovery behaviors after 8.0 s
+oscillation_distance: 0.3
+# Planner selection
+
+recovery_enabled: true
+recovery_patience: 15.0

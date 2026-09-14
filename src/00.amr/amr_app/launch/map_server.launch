@@ -1,0 +1,13 @@
+<launch>
+    <!-- Arguments -->
+    <arg name="simulation" default="false" />
+    <arg name="map_file" default="" />
+
+    <param if="$(arg simulation)" name="/use_sim_time" value="true" />
+    <param unless="$(arg simulation)" name="/use_sim_time" value="false" />
+
+    <!-- Map server -->
+    <node pkg="map_server" name="map_server" type="map_server"
+        args="$(arg map_file).yaml" />
+
+</launch>

@@ -1,0 +1,26 @@
+<launch>
+  <!-- Argument: đường dẫn không có phần mở rộng (.pgm, .yaml sẽ tự thêm) -->
+  <arg name="map_file" default="/home/user_name/my_map"/>
+
+  <!-- Dummy node để chạy chuỗi lệnh shell -->
+  <node pkg="roscpp_tutorials" type="listener" name="map_saver_launcher" output="screen"
+        launch-prefix="bash -c">
+    <param name="map_file" value="$(arg map_file)"/>
+    <rosparam>
+      map_file: "$(arg map_file)"
+    </rosparam>
+    <launch-prefix>
+      bash -c '
+        sleep 2 &&
+        echo "Finishing trajectory..." &&
+        rosservice call /finish_trajectory "{trajectory_id: 0}" &&
+        sleep 1 &&
+        echo "Saving pbstream to $(arg map_file).pbstream..." &&
+        rosservice call /write_state "{filename: \"$(arg map_file).pbstream\"}" &&
+        sleep 1 &&
+        echo "Saving occupancy grid map..." &&
+        rosrun map_server map_saver -f $(arg map_file)
+      '
+    </launch-prefix>
+  </node>
+</launch>

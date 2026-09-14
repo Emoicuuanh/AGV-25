@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+  <rosparam file="$(env HOME)/robot_config/robot_define.yaml" command="load" />
+  <include file="$(find tuw_multi_robot_demo)/launch/client.launch">
+  </include>
+
+</launch>

@@ -1,0 +1,10 @@
+<launch>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_1" args="0.0 0 0.081 0 0 0  base_footprint base_link" />
+
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_11" args="0.35 0.25 0.25 1.570796 0 2.07 /base_footprint /base_laser_1" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_12" args="0.35 -0.25 0.25 1.570796 0 2.07 /base_footprint /base_laser_2" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_13" args="-0.35 -0.25 0.25 -1.570796 0 2.07  /base_footprint /base_laser_3" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher_14" args="-0.35 0.25 0.25 -1.570796 0 2.07  /base_footprint /base_laser_4" />
+
+</launch>

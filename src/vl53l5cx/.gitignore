@@ -1,0 +1,12 @@
+.pio
+.vscode/
+*.exe
+*.out
+build/
+Makefile
+CMakeFiles
+*.cmake
+*.make
+*.o
+*.bin
+CMakeCache.txt

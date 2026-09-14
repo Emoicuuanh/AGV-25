@@ -1,0 +1,11 @@
+<launch>
+    <arg name="plc_port" default="$(env ELEVATOR_PORT)" />
+    <arg name="plc_address" default="$(env ELEVATOR_IP)" />
+    <arg name="elevator_name" default="$(env ELEVATOR_NAME)" />
+    <node pkg="elevator" type="elevator_server.py" name="elevator_server" output="screen"
+        args="--config_path $(find amr_config)/cfg">
+        <param name="plc_address" value="$(arg plc_address)" />
+        <param name="plc_port" value="$(arg plc_port)" />
+        <param name="elevator_name" value="$(arg elevator_name)" />
+    </node>
+</launch>

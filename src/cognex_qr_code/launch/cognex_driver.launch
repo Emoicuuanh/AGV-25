@@ -1,0 +1,5 @@
+<launch>
+    <node name="read_qr_code" pkg="cognex_qr_code" type="read_qr_code.py" output="screen">
+        <rosparam file="$(find cognex_qr_code)/cfg/config_cognex.yaml" command="load" />
+    </node>
+</launch>

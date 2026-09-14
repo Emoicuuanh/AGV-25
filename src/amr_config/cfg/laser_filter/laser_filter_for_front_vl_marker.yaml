@@ -1,0 +1,15 @@
+scan_filter_chain:
+- name: front side
+  type: laser_filters/LaserScanAngularBoundsFilter  # Get in range lower to upper follow CCW
+  params:
+    lower_angle: -0.2
+    upper_angle: 0.4
+
+- name: range
+  type: laser_filters/LaserScanRangeFilter
+  params:
+    use_message_range_limits: false
+    lower_threshold: -.inf
+    upper_threshold: 2.5
+    lower_replacement_value: -.inf
+    upper_replacement_value: .inf

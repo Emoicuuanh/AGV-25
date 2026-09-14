@@ -1,0 +1,13 @@
+<launch>
+   <node name="arduino_driver" pkg="arduino_ros" type="arduino_driver.py" output="screen">
+      <rosparam file="$(find arduino_ros)/cfg/agv_arduino_params.yaml" command="load"/>
+      <rosparam file="$(find arduino_ros)/cfg/transform.yaml"/>
+   </node>
+
+   <!-- <node pkg="tf" type="static_transform_publisher" name="base_link_to_ultrasonic0"
+      args="0.37 0.0 0.44 0.0 0.0 0.0 base_link /ultrasonic0 40" />
+   <node pkg="tf" type="static_transform_publisher" name="base_link_to_ultrasonic1"
+      args="-0.1 0.1 0.35 2.62 0.0 0.0 base_link /ultrasonic1 40" />
+   <node pkg="tf" type="static_transform_publisher" name="base_link_to_ultrasonic2"
+      args="-0.1 -0.1 0.35 -2.62 0.0 0.0 base_link /ultrasonic2 40" /> -->
+</launch>

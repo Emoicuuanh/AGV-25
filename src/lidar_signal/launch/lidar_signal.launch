@@ -1,0 +1,28 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="use_visualization_marker" default="false" />
+	<param name="use_marker" type="bool" value="$(arg use_visualization_marker)" />
+  <arg name="subfix" default="py" />
+	<arg name="use_rviz" default="false" />
+  <arg name="log_level" default="2"/>
+  <!-- <rosparam file="$(find lidar_signal)/cfg/config.yaml" command="load" /> -->
+
+  <node name="lidar_signal1" pkg="lidar_signal" type="lidar.$(arg subfix)" output="screen">
+    <rosparam file="$(find lidar_signal)/cfg/config1.yaml"/>
+  </node>
+
+  <node name="lidar_signal2" pkg="lidar_signal" type="lidar.$(arg subfix)" output="screen">
+    <rosparam file="$(find lidar_signal)/cfg/config2.yaml"/>
+  </node>
+  <group if="$(arg use_rviz)">
+		<include file="$(find lidar_signal)/launch/rviz.launch" />
+	</group>
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="odom_to_laser_frame1" output="screen"
+        args="0 0 0 0 0 0 /base_link /laser_frame1 100" />
+
+        <node pkg="tf" type="static_transform_publisher" name="odom_to_laser_frame2" output="screen"
+        args="0 0 0 0 0 0 /base_link /laser_frame2 100" /> -->
+
+
+</launch>

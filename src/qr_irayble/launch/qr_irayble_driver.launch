@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Arguments -->
+  <arg name="qr_angle" default="$(env ROTATE_Z_CAM_QR)" />
+  <arg name="ip_address1" default="192.168.0.150" /> <!-- continuous reader -->
+  <arg name="ip_address2" default="192.168.0.151" /> <!-- service reader -->
+  <arg name="port" default="2111" />
+  <arg name="get_io_rate" default="60" />
+  <arg name="comm_mode" default="TCP" />
+  <arg name="result_format" default="Common" />
+  <arg name="transfer_style" default="Upload" />
+  <arg name="site_id" default="0" />
+  <arg name="enable_light_control" default="false" />
+  <arg name="light_control_interval" default="5.0" />
+
+  <!-- Continuous AGV Code Reader (C++) -->
+  <node name="qr_irayble_node" pkg="qr_irayble" type="qrIrayble" output="screen">
+    <param name="ip_address" value="$(arg ip_address1)" />
+    <param name="port" value="$(arg port)" />
+    <param name="get_io_rate" value="$(arg get_io_rate)" />
+    <param name="comm_mode" value="$(arg comm_mode)" />
+    <param name="result_format" value="$(arg result_format)" />
+    <param name="transfer_style" value="$(arg transfer_style)" />
+    <param name="site_id" value="$(arg site_id)" />
+    <param name="enable_light_control" value="$(arg enable_light_control)" />
+    <param name="light_control_interval" value="$(arg light_control_interval)" />
+    <param name="angle_cam_qr" value="$(arg qr_angle)" />
+  </node>
+
+  <!-- Service-based AGV Code Reader (Python) -->
+  <!-- <node name="agv_code_reader_service" pkg="qr_irayble" type="agv_code_reader_node.py" output="screen">
+    <param name="ip_address" value="$(arg ip_address2)" />
+    <param name="port" value="$(arg port)" />
+    <param name="socket_timeout" value="3" />
+    <param name="connect_attempts" value="2" />
+  </node> -->
+
+</launch>
